@@ -11,6 +11,7 @@ Statyczne strony z harmonogramami realizacji projektów prowadzonych przez Biuro
 | **ALARM.soia** | [`/alarm-soia/`](https://kgpsp.github.io/harmonogramy/alarm-soia/) | portal ostrzegania + aplikacje mobilne Android/iOS | 30.11.2026 |
 | **ZKSWD** | [`/zkswd/`](https://kgpsp.github.io/harmonogramy/zkswd/) | wspomaganie decyzji ZK — MVP od 21.08.2026, wydania co tydzień | 18.12.2026 |
 | **CivCom** | [`/civcom/`](https://kgpsp.github.io/harmonogramy/civcom/) | komunikator ZK i OL (civcom.soia.info) | 14.09.2026 |
+| **WIEDZA.soia** | [`/wiedza-soia/`](https://kgpsp.github.io/harmonogramy/wiedza-soia/) | portal wiedzy — dokumentacja systemów SOiA + ochrona ludności | 30.09.2026 (gotowość) |
 | **sso.soia** | [`/sso-soia/`](https://kgpsp.github.io/harmonogramy/sso-soia/) | centralne repozytorium tożsamości — wspólne logowanie do systemów SOiA | 01.09.2026 (uruchomienie) |
 
 Na stronie głównej wymienione są dodatkowo systemy **w przygotowaniu** (SYRENY.soia, CEZOL, CEOZO, GSU) — mają karty opisowe, bez harmonogramu.
@@ -21,6 +22,7 @@ Na stronie głównej wymienione są dodatkowo systemy **w przygotowaniu** (SYREN
 index.html                strona główna — lista harmonogramów
 alarm-soia/index.html     harmonogram ALARM.soia
 sso-soia/index.html       harmonogram sso.soia
+wiedza-soia/index.html    harmonogram WIEDZA.soia
 zkswd/index.html          harmonogram ZKSWD
 civcom/index.html         harmonogram CivCom
 assets/harmonogram.css    wspólny system wizualny (motyw jasny i ciemny)

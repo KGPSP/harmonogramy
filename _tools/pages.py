@@ -409,7 +409,102 @@ SSO = {
     <p><b>Kontekst.</b> Repozytorium dzia\u0142a we w\u0142asnej infrastrukturze KG PSP i obs\u0142uguje <b>konta s\u0142u\u017cbowe oraz konta podmiot\u00f3w wsp\u00f3\u0142dzia\u0142aj\u0105cych</b>. Nie zast\u0119puje login.gov.pl ani Profilu Zaufanego \u2014 te pozostaj\u0105 \u015bcie\u017ck\u0105 uwierzytelniania obywateli w us\u0142ugach publicznych.</p>""",
 }
 
-PAGES = [ALARM, ZKSWD, CIVCOM, SSO]
+
+# =============================================================== WIEDZA.soia
+
+WIEDZA_SECTIONS = """  <section class="critical neutral">
+    <div class="hd">
+      <span class="tag">Co znaczy „gotowy”</span>
+      <h3 style="flex:1 1 320px">Portal już działa — 30 września kończy się jego urządzanie</h3>
+    </div>
+    <p class="lead" style="max-width:80ch">Platforma jest uruchomiona i można na niej pisać, więc „gotowość” nie oznacza tu włączenia systemu. Oznacza pięć rzeczy naraz: <b>ustaloną strukturę</b> działów, <b>przesądzone zasady</b> (kto zatwierdza treść i co w ogóle wolno opublikować), <b>treść bazową</b> dla systemów, które już pracują, <b>przeszkolonych redaktorów</b> w komórkach oraz <b>logowanie kontem służbowym</b> dla sekcji nieprzeznaczonych na zewnątrz. Dopiero komplet tych elementów sprawia, że portal utrzymuje się sam, zamiast zestarzeć się w kilka miesięcy.</p>
+    <div class="chain">
+      <div class="step first"><span class="sn">1</span><span class="st">Struktura działów i nawigacja</span><span class="sd">do 21.08</span></div>
+      <div class="step"><span class="sn">2</span><span class="st">Zasady: szablon, zatwierdzanie, klasyfikacja</span><span class="sd">do 11.09</span></div>
+      <div class="step"><span class="sn">3</span><span class="st">Treść bazowa uruchomionych systemów</span><span class="sd">do 25.09</span></div>
+      <div class="step"><span class="sn">4</span><span class="st">Redaktorzy w komórkach przeszkoleni</span><span class="sd">do 25.09</span></div>
+      <div class="step last"><span class="sn">Efekt</span><span class="st">Portal utrzymuje się bieżącą pracą</span><span class="sd">30.09</span></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Co może przesunąć termin</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th style="width:34%">Ryzyko</th><th style="width:12%">Waga</th><th style="width:27%">Skutek, jeśli się zmaterializuje</th><th style="width:27%">Co je zdejmuje</th></tr></thead>
+        <tbody>
+          <tr><td><b>Publikacja treści, która nie powinna wyjść na zewnątrz</b> — materiały do użytku służbowego, dane osobowe, dane operacyjne</td><td class="sev"><span class="pill hi">Krytyczne</span></td><td>Nieodwracalne ujawnienie materiału; utrata zaufania podmiotów współdziałających.</td><td>Klasyfikacja treści rozstrzygnięta do 28.08; sprawdzenie dopuszczalności jako obowiązkowy krok przed każdą stroną.</td></tr>
+          <tr><td><b>Treść bez właściciela</b> — nikt nie odpowiada za aktualność działu</td><td class="sev"><span class="pill hi">Wysokie</span></td><td>Portal zestarzeje się w kilka miesięcy i przestanie być używany.</td><td>Redaktorzy merytoryczni wyznaczeni w komórkach + tryb zatwierdzania działający od 11.09.</td></tr>
+          <tr><td><b>Aktualność stanu prawnego</b> — przepisy i procedury zmieniają się w trakcie</td><td class="sev"><span class="pill md">Średnie</span></td><td>Publikacja nieobowiązującej procedury; ryzyko błędnego działania w sytuacji kryzysowej.</td><td>Weryfikacja każdego przywołania u źródła przed publikacją; data przeglądu widoczna na stronie.</td></tr>
+          <tr><td><b>Nadążanie za wydaniami ZKSWD</b> — nowa funkcjonalność co tydzień</td><td class="sev"><span class="pill md">Średnie</span></td><td>Opisy zmian rozjeżdżają się z systemem; operatorzy przestają ufać instrukcji.</td><td>Opis zmian jako element wydania, nie osobne zadanie po fakcie.</td></tr>
+          <tr><td><b>Zależność od sso.soia</b> — logowanie kontem służbowym</td><td class="sev"><span class="pill lo">Niskie</span></td><td>Sekcje wewnętrzne zostają na kontach lokalnych do czasu podłączenia.</td><td>Sekcje publiczne działają niezależnie; podłączenie do wspólnego logowania nie blokuje gotowości.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+"""
+
+WIEDZA = {
+    "slug": "wiedza-soia",
+    "title": "Harmonogram WIEDZA.soia \u2014 KG PSP",
+    "ogtitle": "Harmonogram WIEDZA.soia",
+    "desc": "Harmonogram portalu wiedzy WIEDZA.soia.info \u2014 dokumentacja system\u00f3w rodziny SOiA oraz baza wiedzy ochrony ludno\u015bci i wsp\u00f3\u0142dzia\u0142ania w zarz\u0105dzaniu kryzysowym. Gotowo\u015b\u0107 portalu 30.09.2026.",
+    "favicon": "\U0001F4DA",
+    "eyebrow": "SOiA \u00b7 Biuro Informatyki i \u0141\u0105czno\u015bci KG PSP",
+    "h1": "Harmonogram<br>WIEDZA.soia",
+    "lead": "<b>WIEDZA.soia</b> (<code>wiedza.soia.info</code>) \u2014 portal wiedzy obs\u0142uguj\u0105cy dwa zakresy naraz: <b>dokumentacj\u0119 i instrukcje system\u00f3w rodziny SOiA</b> oraz <b>baz\u0119 wiedzy ca\u0142ego obszaru ochrony ludno\u015bci i wsp\u00f3\u0142dzia\u0142ania w zarz\u0105dzaniu kryzysowym</b>. Platforma jest ju\u017c uruchomiona \u2014 do ko\u0144ca wrze\u015bnia 2026 domykamy struktur\u0119, zasady redakcyjne i tre\u015b\u0107 bazow\u0105.",
+    "facts": [
+        {"k": "Dzi\u015b", "v": "20.08.2026", "n": "6 tygodni do gotowo\u015bci", "auto_date": True, "auto_left": True},
+        {"k": "Gotowo\u015b\u0107 portalu", "v": "30.09.2026", "n": "struktura, zasady i tre\u015b\u0107 bazowa", "critical": True},
+        {"k": "Platforma", "v": "dzia\u0142a", "n": "uruchomiona, trwa nape\u0142nianie tre\u015bci\u0105"},
+        {"k": "Zakres", "v": "dwa obszary", "n": "systemy SOiA + ochrona ludno\u015bci i wsp\u00f3\u0142dzia\u0142anie"},
+    ],
+    "aside": "",
+    "chart_title": "Linia czasu",
+    "chart_note": "Sierpie\u0144 \u2013 wrzesie\u0144 2026 \u00b7 podzia\u0142 tygodniowy",
+    "start": "2026-08-03", "weeks": 9, "deadline": "2026-09-30", "minw": 1100,
+    "left_suffix": "do gotowo\u015bci",
+    "months": [("Sierpie\u0144", 4), ("Wrzesie\u0144", 5)],
+    "milestones": [
+        {"date": "2026-08-28", "label": "Model dost\u0119pu i klasyfikacja<br>tre\u015bci rozstrzygni\u0119te", "critical": True},
+        {"date": "2026-09-11", "label": "Tryb zatwierdzania tre\u015bci dzia\u0142a", "raise": True},
+        {"date": "2026-09-30", "label": "Gotowo\u015b\u0107 portalu", "final": True},
+    ],
+    "lanes": [
+        {"name": "Portal i dost\u0119p", "color": "portal", "meta": "platforma dzia\u0142a \u2014 do domkni\u0119cia model dost\u0119pu i wersjonowanie", "rows": [
+            {"name": "Model dost\u0119pu: co publiczne, co za logowaniem", "dates": "3.08 \u2013 28.08 \u00b7 rozstrzygni\u0119cie warunkowe", "s": 1, "e": 5, "key": True},
+            {"name": "Logowanie kontem s\u0142u\u017cbowym (przez sso.soia)", "dates": "24.08 \u2013 18.09 \u00b7 zale\u017cne od sso.soia", "s": 4, "e": 8},
+            {"name": "Wersjonowanie tre\u015bci i wycofywanie nieaktualnych stron", "dates": "7.09 \u2013 25.09", "s": 6, "e": 9},
+        ]},
+        {"name": "Struktura i redakcja", "color": "api", "meta": "kto pisze, kto zatwierdza, gdzie co le\u017cy", "rows": [
+            {"name": "Struktura dzia\u0142\u00f3w i nawigacja", "dates": "3.08 \u2013 21.08", "s": 1, "e": 4},
+            {"name": "Szablon strony i zasady redakcyjne", "dates": "10.08 \u2013 4.09", "s": 2, "e": 6},
+            {"name": "Klasyfikacja tre\u015bci dopuszczonych do publikacji", "dates": "17.08 \u2013 11.09 \u00b7 warunek bezpiecze\u0144stwa", "s": 3, "e": 7, "key": True},
+            {"name": "Tryb zatwierdzania tre\u015bci przed publikacj\u0105", "dates": "24.08 \u2013 18.09", "s": 4, "e": 8},
+        ]},
+        {"name": "Tre\u015b\u0107: systemy SOiA", "color": "and", "meta": "instrukcje operatorskie i opisy zmian w wydaniach", "rows": [
+            {"name": "Instrukcje operatorskie: ALARM.soia i ZKSWD", "dates": "10.08 \u2013 18.09", "s": 2, "e": 8},
+            {"name": "Instrukcje: CivCom i SYRENY.soia", "dates": "24.08 \u2013 25.09", "s": 4, "e": 9},
+            {"name": "Opisy zmian dla cotygodniowych wyda\u0144 ZKSWD", "dates": "21.08 \u2013 30.09 \u00b7 co tydzie\u0144", "s": 3, "e": 10},
+        ]},
+        {"name": "Tre\u015b\u0107: ochrona ludno\u015bci i wsp\u00f3\u0142dzia\u0142anie", "color": "qa", "meta": "wiedza, kt\u00f3ra nie znika razem z aplikacj\u0105", "rows": [
+            {"name": "Procedury i zasady wsp\u00f3\u0142dzia\u0142ania (PSP \u00b7 RCB \u00b7 WCZK \u00b7 PCZK \u00b7 GCZK)", "dates": "3.08 \u2013 18.09", "s": 1, "e": 8},
+            {"name": "Akty i wzory dokument\u00f3w \u2014 weryfikacja u \u017ar\u00f3d\u0142a", "dates": "17.08 \u2013 25.09", "s": 3, "e": 9},
+            {"name": "Materia\u0142y szkoleniowe i scenariusze \u0107wicze\u0144", "dates": "31.08 \u2013 30.09", "s": 5, "e": 10},
+        ]},
+        {"name": "Odbi\u00f3r", "color": "dep", "meta": "warunki uznania portalu za gotowy", "rows": [
+            {"name": "Szkolenie redaktor\u00f3w w kom\u00f3rkach", "dates": "7.09 \u2013 25.09", "s": 6, "e": 9},
+            {"name": "Przegl\u0105d redakcyjny ca\u0142o\u015bci", "dates": "14.09 \u2013 25.09", "s": 7, "e": 9},
+            {"name": "Potwierdzenie gotowo\u015bci portalu", "dates": "28.09 \u2013 30.09", "s": 9, "e": 10, "key": True},
+        ]},
+    ],
+    "sections": WIEDZA_SECTIONS,
+    "footnotes": """    <p><b>Za\u0142o\u017cenia planu.</b> \u201eKoniec wrze\u015bnia\u201d przyj\u0119to jako <b>30.09.2026</b> \u2014 gotowo\u015b\u0107 portalu, czyli pe\u0142na struktura, przes\u0105dzone zasady redakcyjne i tre\u015b\u0107 bazowa dla system\u00f3w, kt\u00f3re ju\u017c pracuj\u0105. Po tej dacie portal jest utrzymywany bie\u017c\u0105c\u0105 prac\u0105 \u2014 m.in. opisami zmian ZKSWD co tydzie\u0144 \u2014 a kolejne systemy dok\u0142adaj\u0105 dokumentacj\u0119 w miar\u0119 wdra\u017cania.</p>
+    <p><b>Kontekst.</b> WIEDZA.soia jest warstw\u0105 publikacyjn\u0105: trafia tu tre\u015b\u0107 zredagowana dla odbiorcy zewn\u0119trznego, po sprawdzeniu dopuszczalno\u015bci publikacji. Materia\u0142 roboczy pozostaje po stronie KG PSP \u2014 przep\u0142yw jest jednostronny.</p>""",
+}
+
+PAGES = [ALARM, ZKSWD, CIVCOM, SSO, WIEDZA]
 
 # =============================================================== strona główna
 
@@ -495,6 +590,17 @@ HUB = """<!doctype html>
         <span class="tag live"><b>●</b> w odbiorze</span>
         <span class="tag term">termin <b>14.09.2026</b></span>
         <span class="tag">komunikator ZK i OL</span>
+      </span>
+    </a>
+
+    <a class="card" href="wiedza-soia/" style="--c:var(--lane-dep)">
+      <span class="n">WIEDZA.soia</span>
+      <span class="go">Otwórz →</span>
+      <span class="d">Portal wiedzy — dokumentacja i instrukcje systemów rodziny SOiA oraz baza wiedzy ochrony ludności i współdziałania w zarządzaniu kryzysowym. Platforma działa, trwa napełnianie treścią.</span>
+      <span class="meta">
+        <span class="tag live"><b>●</b> w napełnianiu</span>
+        <span class="tag term">gotowość <b>30.09.2026</b></span>
+        <span class="tag">dwa obszary wiedzy</span>
       </span>
     </a>
 
