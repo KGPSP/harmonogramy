@@ -193,7 +193,7 @@ PAGE = """<!doctype html>
     </div>
 
     <div class="scroll">
-      <div class="chart" style="--weeks:{weeks};min-width:{minw}px" data-t-start="{start}" data-t-weeks="{weeks}" data-t-deadline="{deadline}">
+      <div class="chart" style="--weeks:{weeks};min-width:{minw}px" data-t-start="{start}" data-t-weeks="{weeks}" data-t-deadline="{deadline}"{left_suffix}>
 
         <div class="months">
 {months}
@@ -273,6 +273,7 @@ def build_page(p):
         lead=p["lead"], facts=render_facts(p["facts"]), aside=p.get("aside", ""),
         chart_title=p["chart_title"], chart_note=p["chart_note"],
         weeks=p["weeks"], minw=p["minw"], start=p["start"], deadline=p["deadline"],
+        left_suffix=(f' data-t-left-suffix="{p["left_suffix"]}"' if p.get("left_suffix") else ""),
         months=render_months(p["months"]),
         weeklabels=render_weeks(p["start"], p["weeks"], p.get("label_every", 1)),
         releases=releases,

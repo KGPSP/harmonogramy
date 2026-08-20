@@ -310,7 +310,106 @@ CIVCOM = {
     <p><b>Kontekst.</b> CivCom jest komunikatorem służbowym rodziny SOiA. Aplikacja na komputer jest cienkim klientem strony <code>civcom.soia.info</code> i jest rozwijana jako otwarte oprogramowanie na licencji EUPL-1.2.</p>""",
 }
 
-PAGES = [ALARM, ZKSWD, CIVCOM]
+
+# =============================================================== sso.soia
+
+SSO_SECTIONS = """  <section class="critical neutral">
+    <div class="hd">
+      <span class="tag">Po co to jest</span>
+      <h3 style="flex:1 1 320px">Jedno konto zamiast ośmiu — i jedno miejsce, w którym odbiera się dostęp</h3>
+    </div>
+    <p class="lead" style="max-width:80ch">Dziś każdy system rodziny SOiA ma własne konta i własne hasła. Oznacza to trzy problemy naraz: użytkownik pamięta osiem haseł, administrator nadaje uprawnienia ośmiokrotnie, a przy odejściu ze służby trzeba pamiętać o odebraniu dostępu w każdym systemie z osobna — i wystarczy przeoczyć jeden. Centralne repozytorium tożsamości zamyka to w jednym punkcie: <b>konto służbowe decyduje o dostępie do wszystkich systemów, a jego wyłączenie odcina je wszystkie naraz</b>.</p>
+    <div class="chain">
+      <div class="step first"><span class="sn">Źródło</span><span class="st">Konto służbowe</span><span class="sd">jedna tożsamość</span></div>
+      <div class="step"><span class="sn">Wejście</span><span class="st">Jedno logowanie</span><span class="sd">sso.soia.info</span></div>
+      <div class="step"><span class="sn">Zakres</span><span class="st">Dostęp według roli</span><span class="sd">8 systemów</span></div>
+      <div class="step"><span class="sn">Zmiana</span><span class="st">Nowe stanowisko — role zmieniane raz</span><span class="sd">1 operacja</span></div>
+      <div class="step last"><span class="sn">Koniec</span><span class="st">Odejście ze służby odcina wszystko</span><span class="sd">1 operacja</span></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Co może przesunąć termin</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th style="width:34%">Ryzyko</th><th style="width:12%">Waga</th><th style="width:27%">Skutek, jeśli się zmaterializuje</th><th style="width:27%">Co je zdejmuje</th></tr></thead>
+        <tbody>
+          <tr><td><b>Wspólny punkt awarii</b> — awaria logowania zatrzymuje wszystkie systemy naraz</td><td class="sev"><span class="pill hi">Krytyczne</span></td><td>Operatorzy nie wejdą do żadnego systemu rodziny SOiA, także w sytuacji kryzysowej.</td><td>Wysoka dostępność i kopie zapasowe (IX), procedury awaryjne przetestowane przed podłączeniem kolejnych systemów.</td></tr>
+          <tr><td><b>Jakość danych w katalogu kont</b> — nieaktualne konta i przypisania</td><td class="sev"><span class="pill hi">Wysokie</span></td><td>Użytkownicy nie logują się albo dostają uprawnienia, których nie powinni mieć.</td><td>Uporządkowanie ról przed podłączeniem każdego systemu; wspólny model ról zamiast osobnych ustaleń.</td></tr>
+          <tr><td><b>Termin 1 września</b> przy trwającej konfiguracji</td><td class="sev"><span class="pill md">Średnie</span></td><td>Uruchomienie z węższym zakresem, niż zakładano.</td><td>1 września uruchamiamy mechanizm logowania, nie wszystkie systemy naraz — reszta dochodzi iteracyjnie.</td></tr>
+          <tr><td><b>Przełączanie działających systemów</b> na nowe logowanie</td><td class="sev"><span class="pill md">Średnie</span></td><td>Przestój w systemie, który już pracuje produkcyjnie.</td><td>Pierwszy system jako potwierdzenie modelu; kolejne dopiero po nim, pojedynczo.</td></tr>
+          <tr><td><b>Konta podmiotów współdziałających</b> — JST i służby spoza PSP</td><td class="sev"><span class="pill lo">Niskie</span></td><td>Współdziałający nie mają dostępu; zostają przy kontach lokalnych.</td><td>Osobny tryb kont zewnętrznych, planowany od listopada.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+"""
+
+SSO = {
+    "slug": "sso-soia",
+    "title": "Harmonogram sso.soia — KG PSP",
+    "ogtitle": "Harmonogram sso.soia",
+    "desc": "Harmonogram centralnego repozytorium tożsamości sso.soia.info — jedno konto i jedno logowanie do wszystkich systemów rodziny SOiA. Uruchomienie produkcyjne 01.09.2026, dalej praca iteracyjna.",
+    "favicon": "\U0001F510",
+    "eyebrow": "SOiA \u00b7 Biuro Informatyki i \u0141\u0105czno\u015bci KG PSP",
+    "h1": "Harmonogram<br>sso.soia",
+    "lead": "<b>sso.soia</b> (<code>sso.soia.info</code>) \u2014 <b>centralne repozytorium to\u017csamo\u015bci</b> dla ca\u0142ej rodziny system\u00f3w SOiA: jedno konto, jedno logowanie i jeden model r\u00f3l zamiast osobnych hase\u0142 w ka\u017cdym systemie. System jest w konfiguracji \u2014 uruchomienie produkcyjne planowane na <b>1 wrze\u015bnia 2026</b>, a dalej praca iteracyjna: poprawki, aktualizacje i podpinanie kolejnych system\u00f3w.",
+    "facts": [
+        {"k": "Dzi\u015b", "v": "20.08.2026", "n": "12 dni do uruchomienia", "auto_date": True, "auto_left": True},
+        {"k": "Uruchomienie produkcyjne", "v": "01.09.2026", "n": "wsp\u00f3lne logowanie dzia\u0142a", "critical": True},
+        {"k": "Dalsza praca", "v": "iteracyjnie", "n": "poprawki i kolejne systemy po uruchomieniu"},
+        {"k": "Zasi\u0119g docelowy", "v": "8 system\u00f3w", "n": "jedno konto do ca\u0142ej rodziny SOiA"},
+    ],
+    "aside": "",
+    "chart_title": "Linia czasu",
+    "chart_note": "Sierpie\u0144 \u2013 grudzie\u0144 2026 \u00b7 podzia\u0142 tygodniowy \u00b7 po 1 wrze\u015bnia harmonogram opisuje podpinanie kolejnych system\u00f3w",
+    "start": "2026-08-03", "weeks": 22, "deadline": "2026-09-01", "minw": 1160,
+    "left_suffix": "do uruchomienia",
+    "months": [("Sierpie\u0144", 4), ("Wrzesie\u0144", 4), ("Pa\u017adziernik", 5), ("Listopad", 4), ("Grudzie\u0144", 5)],
+    "milestones": [
+        {"date": "2026-09-01", "label": "Uruchomienie produkcyjne", "critical": True},
+        {"date": "2026-09-30", "label": "Pierwszy system<br>przez wsp\u00f3lne logowanie", "raise": True},
+        {"date": "2026-10-30", "label": "Testy bezpiecze\u0144stwa zako\u0144czone"},
+        {"date": "2026-11-27", "label": "Systemy s\u0142u\u017cbowe pod\u0142\u0105czone", "raise": True},
+        {"date": "2026-12-31", "label": "Ca\u0142a rodzina SOiA", "final": True},
+    ],
+    "lanes": [
+        {"name": "Serwer to\u017csamo\u015bci", "color": "portal", "meta": "wsp\u00f3lny mechanizm logowania we w\u0142asnej infrastrukturze KG PSP", "rows": [
+            {"name": "Konfiguracja \u015brodowiska i polityk logowania", "dates": "3.08 \u2013 28.08 \u00b7 w toku", "s": 1, "e": 5},
+            {"name": "Utwardzenie i konfiguracja bezpiecze\u0144stwa", "dates": "17.08 \u2013 4.09 \u00b7 warunek uruchomienia", "s": 3, "e": 6, "key": True},
+            {"name": "Wysoka dost\u0119pno\u015b\u0107 i kopie zapasowe", "dates": "7.09 \u2013 2.10", "s": 6, "e": 10},
+            {"name": "Monitoring i rejestrowanie zdarze\u0144 logowania", "dates": "21.09 \u2013 30.10", "s": 8, "e": 14},
+        ]},
+        {"name": "To\u017csamo\u015bci, role i uprawnienia", "color": "api", "meta": "sk\u0105d bior\u0105 si\u0119 konta i kto co mo\u017ce zobaczy\u0107", "rows": [
+            {"name": "Po\u0142\u0105czenie z katalogiem kont s\u0142u\u017cbowych", "dates": "10.08 \u2013 4.09", "s": 2, "e": 6, "key": True},
+            {"name": "Wsp\u00f3lny model r\u00f3l dla wszystkich system\u00f3w", "dates": "17.08 \u2013 25.09", "s": 3, "e": 9},
+            {"name": "Logowanie dwusk\u0142adnikowe", "dates": "7.09 \u2013 16.10", "s": 6, "e": 12},
+            {"name": "Konta podmiot\u00f3w wsp\u00f3\u0142dzia\u0142aj\u0105cych (JST, s\u0142u\u017cby)", "dates": "12.10 \u2013 27.11", "s": 11, "e": 18},
+        ]},
+        {"name": "Pod\u0142\u0105czanie system\u00f3w", "color": "and", "meta": "kolejno\u015b\u0107 ustawiona tak, \u017ceby ryzyko ros\u0142o powoli", "rows": [
+            {"name": "Pierwszy system \u2014 potwierdzenie modelu", "dates": "24.08 \u2013 11.09", "s": 4, "e": 7, "key": True},
+            {"name": "ALARM.soia i ZKSWD", "dates": "14.09 \u2013 30.10", "s": 7, "e": 14},
+            {"name": "CivCom i SYRENY.soia", "dates": "26.10 \u2013 27.11", "s": 13, "e": 18},
+            {"name": "CEZOL, CEOZO, GSU, WIEDZA.soia", "dates": "16.11 \u2013 31.12", "s": 16, "e": 23},
+        ]},
+        {"name": "Bezpiecze\u0144stwo i odbi\u00f3r", "color": "qa", "meta": "logowanie jest wsp\u00f3lnym punktem \u2014 musi wytrzyma\u0107 awari\u0119", "rows": [
+            {"name": "Testy logowania i scenariuszy awaryjnych", "dates": "17.08 \u2013 4.09", "s": 3, "e": 6},
+            {"name": "Procedury awaryjne: utrata dost\u0119pu, przywracanie", "dates": "7.09 \u2013 2.10", "s": 6, "e": 10},
+            {"name": "Testy bezpiecze\u0144stwa", "dates": "5.10 \u2013 30.10 \u00b7 warunek pod\u0142\u0105czania kolejnych", "s": 10, "e": 14, "key": True},
+        ]},
+        {"name": "Wdro\u017cenie i wsparcie", "color": "dep", "meta": "u\u017cytkownik ma zauwa\u017cy\u0107 tylko to, \u017ce loguje si\u0119 raz", "rows": [
+            {"name": "Instrukcje logowania i materia\u0142y dla u\u017cytkownik\u00f3w", "dates": "24.08 \u2013 25.09", "s": 4, "e": 9},
+            {"name": "Szkolenia administrator\u00f3w system\u00f3w", "dates": "14.09 \u2013 30.10", "s": 7, "e": 14},
+            {"name": "Poprawki i aktualizacje po uruchomieniu", "dates": "1.09 \u2013 31.12 \u00b7 iteracyjnie", "s": 5, "e": 23},
+        ]},
+    ],
+    "sections": SSO_SECTIONS,
+    "footnotes": """    <p><b>Za\u0142o\u017cenia planu.</b> 1 wrze\u015bnia 2026 uruchamiamy <b>mechanizm wsp\u00f3lnego logowania</b>, a nie wszystkie systemy naraz \u2014 kolejne dochodz\u0105 iteracyjnie do ko\u0144ca roku. Kolejno\u015b\u0107 podpinania system\u00f3w i daty poszczeg\u00f3lnych pod\u0142\u0105cze\u0144 s\u0105 propozycj\u0105 do potwierdzenia z w\u0142a\u015bcicielami tych system\u00f3w.</p>
+    <p><b>Kontekst.</b> Repozytorium dzia\u0142a we w\u0142asnej infrastrukturze KG PSP i obs\u0142uguje <b>konta s\u0142u\u017cbowe oraz konta podmiot\u00f3w wsp\u00f3\u0142dzia\u0142aj\u0105cych</b>. Nie zast\u0119puje login.gov.pl ani Profilu Zaufanego \u2014 te pozostaj\u0105 \u015bcie\u017ck\u0105 uwierzytelniania obywateli w us\u0142ugach publicznych.</p>""",
+}
+
+PAGES = [ALARM, ZKSWD, CIVCOM, SSO]
 
 # =============================================================== strona główna
 
@@ -352,6 +451,11 @@ HUB = """<!doctype html>
   .tag b{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:600;font-variant-numeric:tabular-nums}
   .tag.term b{color:var(--alarm)}
   .tag.live b{color:var(--ok)}
+  .card--wip{border-left-color:var(--rule-strong);background:var(--surface-2);box-shadow:none;cursor:default}
+  .card--wip:hover{transform:none;border-color:var(--rule);border-left-color:var(--rule-strong)}
+  .card--wip .n{color:var(--ink-2)}
+  .card--wip .d{max-width:62ch}
+  .tag.wip{border-style:dashed;color:var(--muted)}
   .soon{border:1px dashed var(--rule-strong);border-radius:4px;padding:18px 22px;color:var(--muted);font-size:14px}
   @media (max-width:560px){
     .card{grid-template-columns:1fr}
@@ -371,6 +475,28 @@ HUB = """<!doctype html>
 
   <section class="list">
     <h2>Aktualne</h2>
+
+    <a class="card" href="sso-soia/" style="--c:var(--lane-qa)">
+      <span class="n">sso.soia</span>
+      <span class="go">Otwórz →</span>
+      <span class="d">Centralne repozytorium tożsamości — jedno konto i jedno logowanie do wszystkich systemów rodziny SOiA, ze wspólnym modelem ról i jednym miejscem odbierania dostępu.</span>
+      <span class="meta">
+        <span class="tag live"><b>●</b> w konfiguracji</span>
+        <span class="tag term">uruchomienie <b>01.09.2026</b></span>
+        <span class="tag">fundament pozostałych systemów</span>
+      </span>
+    </a>
+
+    <a class="card" href="civcom/" style="--c:var(--lane-and)">
+      <span class="n">CivCom</span>
+      <span class="go">Otwórz →</span>
+      <span class="d">Służbowy komunikator zarządzania kryzysowego i ochrony ludności (civcom.soia.info) — szyfrowana komunikacja, logowanie kontem służbowym, aplikacja na komputer.</span>
+      <span class="meta">
+        <span class="tag live"><b>●</b> w odbiorze</span>
+        <span class="tag term">termin <b>14.09.2026</b></span>
+        <span class="tag">komunikator ZK i OL</span>
+      </span>
+    </a>
 
     <a class="card" href="alarm-soia/" style="--c:var(--lane-portal)">
       <span class="n">ALARM.soia</span>
@@ -393,19 +519,47 @@ HUB = """<!doctype html>
         <span class="tag">wydania co tydzień</span>
       </span>
     </a>
+  </section>
 
-    <a class="card" href="civcom/" style="--c:var(--lane-and)">
-      <span class="n">CivCom</span>
-      <span class="go">Otwórz →</span>
-      <span class="d">Służbowy komunikator zarządzania kryzysowego i ochrony ludności (civcom.soia.info) — szyfrowana komunikacja, logowanie kontem służbowym, aplikacja na komputer.</span>
+  <section class="list">
+    <h2>W przygotowaniu</h2>
+    <p class="lead" style="font-size:14.5px;margin-bottom:2px">Systemy prowadzone przez BIŁ, dla których harmonogram powstanie w kolejnym kroku.</p>
+
+    <div class="card card--wip">
+      <span class="n">SYRENY.soia</span>
+      <span class="d">System sterowania syrenami alarmowymi w Polsce — uruchamianie syren przez sieć GSM i LoRaWAN, ewidencja obiektów, obsługa przez PSP i samorządy. Warstwa wykonawcza ostrzegania.</span>
       <span class="meta">
-        <span class="tag live"><b>●</b> w odbiorze</span>
-        <span class="tag term">termin <b>14.09.2026</b></span>
-        <span class="tag">komunikator ZK i OL</span>
+        <span class="tag">PSP i samorządy</span>
+        <span class="tag wip">harmonogram w przygotowaniu</span>
       </span>
-    </a>
+    </div>
 
-    <p class="soon">Kolejne harmonogramy będą dodawane w tym miejscu.</p>
+    <div class="card card--wip">
+      <span class="n">CEZOL</span>
+      <span class="d">Centralna Ewidencja Zasobów Ochrony Ludności — ewidencja sił i środków wykorzystywanych w ochronie ludności, wspólna dla szczebla krajowego, wojewódzkiego i lokalnego.</span>
+      <span class="meta">
+        <span class="tag">ewidencja zasobów</span>
+        <span class="tag wip">harmonogram w przygotowaniu</span>
+      </span>
+    </div>
+
+    <div class="card card--wip">
+      <span class="n">CEOZO</span>
+      <span class="d">Centralna Ewidencja Obiektów Zbiorowej Ochrony — schrony, ukrycia i miejsca doraźnego schronienia. Rejestr prowadzony na podstawie ustawy o ochronie ludności i obronie cywilnej.</span>
+      <span class="meta">
+        <span class="tag">ewidencja obiektów</span>
+        <span class="tag wip">harmonogram w przygotowaniu</span>
+      </span>
+    </div>
+
+    <div class="card card--wip">
+      <span class="n">GSU</span>
+      <span class="d">Ekosystem „Gdzie się ukryć” (gdziesieukryc.pl) — publiczna mapa miejsc schronienia dla obywateli wraz z aplikacją mobilną. Warstwa odbiorcza danych z ewidencji obiektów.</span>
+      <span class="meta">
+        <span class="tag">dla obywateli</span>
+        <span class="tag wip">harmonogram w przygotowaniu</span>
+      </span>
+    </div>
   </section>
 
   <section class="orgs">

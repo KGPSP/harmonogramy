@@ -36,6 +36,11 @@
   .tag b{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:600;font-variant-numeric:tabular-nums}
   .tag.term b{color:var(--alarm)}
   .tag.live b{color:var(--ok)}
+  .card--wip{border-left-color:var(--rule-strong);background:var(--surface-2);box-shadow:none;cursor:default}
+  .card--wip:hover{transform:none;border-color:var(--rule);border-left-color:var(--rule-strong)}
+  .card--wip .n{color:var(--ink-2)}
+  .card--wip .d{max-width:62ch}
+  .tag.wip{border-style:dashed;color:var(--muted)}
   .soon{border:1px dashed var(--rule-strong);border-radius:4px;padding:18px 22px;color:var(--muted);font-size:14px}
   @media (max-width:560px){
     .card{grid-template-columns:1fr}
@@ -55,6 +60,28 @@
 
   <section class="list">
     <h2>Aktualne</h2>
+
+    <a class="card" href="sso-soia/" style="--c:var(--lane-qa)">
+      <span class="n">sso.soia</span>
+      <span class="go">Otwórz →</span>
+      <span class="d">Centralne repozytorium tożsamości — jedno konto i jedno logowanie do wszystkich systemów rodziny SOiA, ze wspólnym modelem ról i jednym miejscem odbierania dostępu.</span>
+      <span class="meta">
+        <span class="tag live"><b>●</b> w konfiguracji</span>
+        <span class="tag term">uruchomienie <b>01.09.2026</b></span>
+        <span class="tag">fundament pozostałych systemów</span>
+      </span>
+    </a>
+
+    <a class="card" href="civcom/" style="--c:var(--lane-and)">
+      <span class="n">CivCom</span>
+      <span class="go">Otwórz →</span>
+      <span class="d">Służbowy komunikator zarządzania kryzysowego i ochrony ludności (civcom.soia.info) — szyfrowana komunikacja, logowanie kontem służbowym, aplikacja na komputer.</span>
+      <span class="meta">
+        <span class="tag live"><b>●</b> w odbiorze</span>
+        <span class="tag term">termin <b>14.09.2026</b></span>
+        <span class="tag">komunikator ZK i OL</span>
+      </span>
+    </a>
 
     <a class="card" href="alarm-soia/" style="--c:var(--lane-portal)">
       <span class="n">ALARM.soia</span>
@@ -77,19 +104,47 @@
         <span class="tag">wydania co tydzień</span>
       </span>
     </a>
+  </section>
 
-    <a class="card" href="civcom/" style="--c:var(--lane-and)">
-      <span class="n">CivCom</span>
-      <span class="go">Otwórz →</span>
-      <span class="d">Służbowy komunikator zarządzania kryzysowego i ochrony ludności (civcom.soia.info) — szyfrowana komunikacja, logowanie kontem służbowym, aplikacja na komputer.</span>
+  <section class="list">
+    <h2>W przygotowaniu</h2>
+    <p class="lead" style="font-size:14.5px;margin-bottom:2px">Systemy prowadzone przez BIŁ, dla których harmonogram powstanie w kolejnym kroku.</p>
+
+    <div class="card card--wip">
+      <span class="n">SYRENY.soia</span>
+      <span class="d">System sterowania syrenami alarmowymi w Polsce — uruchamianie syren przez sieć GSM i LoRaWAN, ewidencja obiektów, obsługa przez PSP i samorządy. Warstwa wykonawcza ostrzegania.</span>
       <span class="meta">
-        <span class="tag live"><b>●</b> w odbiorze</span>
-        <span class="tag term">termin <b>14.09.2026</b></span>
-        <span class="tag">komunikator ZK i OL</span>
+        <span class="tag">PSP i samorządy</span>
+        <span class="tag wip">harmonogram w przygotowaniu</span>
       </span>
-    </a>
+    </div>
 
-    <p class="soon">Kolejne harmonogramy będą dodawane w tym miejscu.</p>
+    <div class="card card--wip">
+      <span class="n">CEZOL</span>
+      <span class="d">Centralna Ewidencja Zasobów Ochrony Ludności — ewidencja sił i środków wykorzystywanych w ochronie ludności, wspólna dla szczebla krajowego, wojewódzkiego i lokalnego.</span>
+      <span class="meta">
+        <span class="tag">ewidencja zasobów</span>
+        <span class="tag wip">harmonogram w przygotowaniu</span>
+      </span>
+    </div>
+
+    <div class="card card--wip">
+      <span class="n">CEOZO</span>
+      <span class="d">Centralna Ewidencja Obiektów Zbiorowej Ochrony — schrony, ukrycia i miejsca doraźnego schronienia. Rejestr prowadzony na podstawie ustawy o ochronie ludności i obronie cywilnej.</span>
+      <span class="meta">
+        <span class="tag">ewidencja obiektów</span>
+        <span class="tag wip">harmonogram w przygotowaniu</span>
+      </span>
+    </div>
+
+    <div class="card card--wip">
+      <span class="n">GSU</span>
+      <span class="d">Ekosystem „Gdzie się ukryć” (gdziesieukryc.pl) — publiczna mapa miejsc schronienia dla obywateli wraz z aplikacją mobilną. Warstwa odbiorcza danych z ewidencji obiektów.</span>
+      <span class="meta">
+        <span class="tag">dla obywateli</span>
+        <span class="tag wip">harmonogram w przygotowaniu</span>
+      </span>
+    </div>
   </section>
 
   <section class="orgs">

@@ -11,12 +11,16 @@ Statyczne strony z harmonogramami realizacji projektów prowadzonych przez Biuro
 | **ALARM.soia** | [`/alarm-soia/`](https://kgpsp.github.io/harmonogramy/alarm-soia/) | portal ostrzegania + aplikacje mobilne Android/iOS | 30.11.2026 |
 | **ZKSWD** | [`/zkswd/`](https://kgpsp.github.io/harmonogramy/zkswd/) | wspomaganie decyzji ZK — MVP od 21.08.2026, wydania co tydzień | 18.12.2026 |
 | **CivCom** | [`/civcom/`](https://kgpsp.github.io/harmonogramy/civcom/) | komunikator ZK i OL (civcom.soia.info) | 14.09.2026 |
+| **sso.soia** | [`/sso-soia/`](https://kgpsp.github.io/harmonogramy/sso-soia/) | centralne repozytorium tożsamości — wspólne logowanie do systemów SOiA | 01.09.2026 (uruchomienie) |
+
+Na stronie głównej wymienione są dodatkowo systemy **w przygotowaniu** (SYRENY.soia, CEZOL, CEOZO, GSU) — mają karty opisowe, bez harmonogramu.
 
 ## Struktura
 
 ```
 index.html                strona główna — lista harmonogramów
 alarm-soia/index.html     harmonogram ALARM.soia
+sso-soia/index.html       harmonogram sso.soia
 zkswd/index.html          harmonogram ZKSWD
 civcom/index.html         harmonogram CivCom
 assets/harmonogram.css    wspólny system wizualny (motyw jasny i ciemny)
@@ -35,9 +39,10 @@ Brak build stepu i zależności npm — publikacja to GitHub Pages z gałęzi `m
 Każdy wykres deklaruje trzy atrybuty na elemencie `.chart`:
 
 ```html
-data-t-start="2026-08-03"     poniedziałek pierwszej kolumny
-data-t-weeks="18"             liczba kolumn tygodniowych
-data-t-deadline="2026-11-30"  data ostateczna
+data-t-start="2026-08-03"        poniedziałek pierwszej kolumny
+data-t-weeks="18"                liczba kolumn tygodniowych
+data-t-deadline="2026-11-30"     data ostateczna
+data-t-left-suffix="do końca"    podpis odliczania (opcjonalny)
 ```
 
 `assets/timeline.js` wylicza z nich pozycję pionowej linii „dziś”, jej etykietę, dzisiejszą datę w kaflu nagłówka, pozostały czas do terminu (z polską odmianą: *1 tydzień / 2 tygodnie / 5 tygodni*) oraz stopkę „stan na …”. Strona nie starzeje się między wypchnięciami do repozytorium. Gdy dzisiejsza data wypada poza zakresem wykresu, linia jest ukrywana.

@@ -4,6 +4,7 @@
  *   data-t-start    poniedziałek pierwszej kolumny  (RRRR-MM-DD)
  *   data-t-weeks    liczba kolumn tygodniowych
  *   data-t-deadline data ostateczna harmonogramu    (RRRR-MM-DD)
+ *   data-t-left-suffix  podpis odliczania, domyślnie "do końca"
  *
  * Skrypt ustawia pozycję linii, jej etykietę, dzisiejszą datę w kaflu
  * oraz pozostały czas do terminu. Dzięki temu strona nie starzeje się
@@ -32,12 +33,12 @@
   }
   function daysPl(n) { return n === 1 ? "1 dzień" : n + " dni"; }
 
-  function timeLeft(today, deadline) {
+  function timeLeft(today, deadline, suffix) {
     var days = Math.round((deadline - today) / DAY);
     if (days < 0) return "termin minął " + daysPl(-days) + " temu";
     if (days === 0) return "termin dzisiaj";
-    if (days <= 21) return daysPl(days) + " do końca";
-    return weeksPl(Math.round(days / 7)) + " do końca";
+    if (days <= 21) return daysPl(days) + " " + suffix;
+    return weeksPl(Math.round(days / 7)) + " " + suffix;
   }
 
   function run() {
@@ -72,7 +73,8 @@
     }
 
     if (deadlineAttr) {
-      var left = timeLeft(today, parseDate(deadlineAttr));
+      var suffix = chart.getAttribute("data-t-left-suffix") || "do końca";
+      var left = timeLeft(today, parseDate(deadlineAttr), suffix);
       document.querySelectorAll("[data-time-left]").forEach(function (el) {
         el.textContent = left;
       });
