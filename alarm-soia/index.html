@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harmonogram ALARM.soia — KG PSP</title>
+<meta name="description" content="Harmonogram produkcji ALARM.soia: portal ostrzegania oraz aplikacje mobilne Android i iOS. Fazy, testy, kamienie milowe i ścieżka krytyczna do gotowości produkcyjnej 30.11.2026.">
+<meta name="author" content="Biuro Informatyki i Łączności KG PSP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Harmonogram ALARM.soia">
+<meta property="og:description" content="Portal ostrzegania i aplikacje mobilne Android/iOS — linia czasu do gotowości produkcyjnej 30.11.2026.">
+<meta property="og:image" content="https://kgpsp.github.io/harmonogramy/og-alarm-soia.png">
+<meta property="og:url" content="https://kgpsp.github.io/harmonogramy/alarm-soia/">
+<meta property="og:locale" content="pl_PL">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚨</text></svg>">
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  --paper:#EDF0F3;
+  --surface:#FFFFFF;
+  --surface-2:#F6F8FA;
+  --ink:#14202B;
+  --ink-2:#3D4C5A;
+  --muted:#66757F;
+  --rule:#D6DDE4;
+  --rule-strong:#B4C0CB;
+
+  --lane-portal:#0F5C8C;
+  --lane-api:#166F60;
+  --lane-and:#9E6510;
+  --lane-ios:#AC3529;
+  --lane-qa:#4B4B93;
+  --lane-dep:#4C5A66;
+
+  --alarm:#B8342A;
+  --ok:#166F60;
+  --today:#B8342A;
+
+  --shadow:0 1px 2px rgba(20,32,43,.06), 0 8px 24px -12px rgba(20,32,43,.18);
+  --labelw:264px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0E141A;
+    --surface:#161E26;
+    --surface-2:#1B242D;
+    --ink:#E7ECF1;
+    --ink-2:#C2CCD6;
+    --muted:#93A2AF;
+    --rule:#2A3742;
+    --rule-strong:#3D4E5C;
+
+    --lane-portal:#5AA9DC;
+    --lane-api:#4CBDA4;
+    --lane-and:#DFA648;
+    --lane-ios:#E4786B;
+    --lane-qa:#9395E2;
+    --lane-dep:#93A3B1;
+
+    --alarm:#E4786B;
+    --ok:#4CBDA4;
+    --today:#E4786B;
+
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -14px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0E141A;
+  --surface:#161E26;
+  --surface-2:#1B242D;
+  --ink:#E7ECF1;
+  --ink-2:#C2CCD6;
+  --muted:#93A2AF;
+  --rule:#2A3742;
+  --rule-strong:#3D4E5C;
+
+  --lane-portal:#5AA9DC;
+  --lane-api:#4CBDA4;
+  --lane-and:#DFA648;
+  --lane-ios:#E4786B;
+  --lane-qa:#9395E2;
+  --lane-dep:#93A3B1;
+
+  --alarm:#E4786B;
+  --ok:#4CBDA4;
+  --today:#E4786B;
+
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -14px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  font-size:15px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{
+  max-width:1240px;
+  margin:0 auto;
+  padding:40px 24px 72px;
+  display:flex;
+  flex-direction:column;
+  gap:34px;
+}
+
+/* ---------- typography ---------- */
+h1,h2,h3{margin:0;font-family:"Barlow Condensed","Arial Narrow",sans-serif;text-wrap:balance;letter-spacing:.01em}
+h1{font-size:clamp(38px,6vw,62px);font-weight:700;line-height:.96;text-transform:uppercase}
+h2{font-size:26px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+h3{font-size:19px;font-weight:600}
+p{margin:0}
+.eyebrow{
+  font-family:"Barlow Condensed","Arial Narrow",sans-serif;
+  font-size:15px;font-weight:600;text-transform:uppercase;letter-spacing:.18em;
+  color:var(--muted);
+}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.lead{max-width:66ch;color:var(--ink-2);font-size:16.5px}
+
+/* ---------- header ---------- */
+header{display:flex;flex-direction:column;gap:14px}
+.title-rule{height:4px;background:var(--ink);width:82px;margin-top:4px}
+
+.facts{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;
+  background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden;
+  margin-top:10px;
+}
+.fact{background:var(--surface);padding:14px 16px;display:flex;flex-direction:column;gap:3px}
+.fact .k{font-size:11.5px;text-transform:uppercase;letter-spacing:.11em;color:var(--muted);font-weight:600}
+.fact .v{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-size:29px;font-weight:700;line-height:1.05;font-variant-numeric:tabular-nums}
+.fact .n{font-size:12.5px;color:var(--muted)}
+.fact.is-critical .v{color:var(--alarm)}
+
+/* ---------- done chips ---------- */
+.done{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chip{
+  display:inline-flex;align-items:baseline;gap:8px;
+  border:1px solid var(--rule);border-radius:999px;background:var(--surface);
+  padding:5px 13px 5px 11px;font-size:13px;color:var(--ink-2);
+}
+.chip b{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;color:var(--ok);font-variant-numeric:tabular-nums}
+
+/* ---------- chart ---------- */
+.chart-card{
+  background:var(--surface);border:1px solid var(--rule);border-radius:4px;
+  box-shadow:var(--shadow);overflow:hidden;
+}
+.chart-head{
+  display:flex;flex-wrap:wrap;gap:12px 24px;align-items:baseline;justify-content:space-between;
+  padding:18px 20px;border-bottom:1px solid var(--rule);
+}
+.scroll{overflow-x:auto;overflow-y:hidden}
+.chart{min-width:1060px;position:relative;padding:0 20px 22px}
+
+.months,.weeks,.row{
+  display:grid;
+  grid-template-columns:var(--labelw) repeat(18,1fr);
+  align-items:center;
+}
+.months{padding-top:16px}
+.months .m{
+  grid-row:1;font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:16px;
+  text-transform:uppercase;letter-spacing:.13em;color:var(--ink-2);
+  border-left:1px solid var(--rule-strong);padding:2px 0 2px 9px;
+}
+.weeks{padding-bottom:10px}
+.weeks .w{
+  font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--muted);
+  padding-left:5px;font-variant-numeric:tabular-nums;white-space:nowrap;
+}
+
+/* milestone rail */
+.rail{position:relative;height:132px;margin-bottom:2px}
+.rail-track{position:absolute;left:var(--labelw);right:0;top:0;bottom:0}
+.rail-line{position:absolute;left:0;right:0;bottom:12px;height:1px;background:var(--rule-strong)}
+.ms{position:absolute;bottom:6px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:5px;width:152px}
+.ms.raise{bottom:44px}
+.ms.raise::after{content:"";position:absolute;bottom:-38px;left:50%;width:1px;height:38px;background:var(--rule-strong)}
+.ms .lbl{
+  order:-1;text-align:center;font-size:11.5px;line-height:1.25;color:var(--ink-2);
+}
+.ms .lbl .d{display:block;font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+.ms .dot{width:11px;height:11px;background:var(--ink);transform:rotate(45deg);border-radius:1px}
+.ms.is-critical .dot{background:var(--alarm)}
+.ms.is-critical .lbl .d{color:var(--alarm)}
+.ms.is-final .dot{width:13px;height:13px;background:var(--alarm);box-shadow:0 0 0 4px color-mix(in srgb,var(--alarm) 18%,transparent)}
+.ms.edge-r{transform:translateX(-74%)}
+
+/* lanes */
+.lanes{position:relative}
+.grid-bg{position:absolute;left:var(--labelw);right:0;top:0;bottom:0;pointer-events:none;z-index:0}
+.grid-bg .gl{position:absolute;top:0;bottom:0;width:1px;background:var(--rule)}
+.grid-bg .gl.strong{background:var(--rule-strong)}
+.today{position:absolute;top:-24px;bottom:0;width:2px;background:var(--today);z-index:3;pointer-events:none}
+.today::after{
+  content:"DZIŚ · 20.08";position:absolute;bottom:6px;left:7px;
+  font-family:"Barlow Condensed",sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;
+  color:var(--today);white-space:nowrap;
+}
+
+.lane{position:relative;z-index:1;border-top:1px solid var(--rule)}
+.lane-title{
+  display:grid;grid-template-columns:var(--labelw) 1fr;align-items:center;
+  padding:11px 0 5px;
+}
+.lane-title .t{display:flex;align-items:center;gap:9px;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:17px;text-transform:uppercase;letter-spacing:.06em}
+.lane-title .swatch{width:10px;height:18px;border-radius:1px;background:var(--c)}
+.lane-title .meta{font-size:12px;color:var(--muted);padding-left:8px}
+
+.row{min-height:34px;padding:1px 0}
+.row .name{
+  padding-right:16px;font-size:13.2px;color:var(--ink-2);line-height:1.3;
+  display:flex;flex-direction:column;gap:1px;
+}
+.row .name .dates{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.bar{
+  grid-column:var(--s)/var(--e);
+  height:20px;border-radius:2px;
+  background:color-mix(in srgb,var(--c) 28%,var(--surface));
+  border-left:3px solid var(--c);
+  border-top:1px solid color-mix(in srgb,var(--c) 34%,var(--surface));
+  border-right:1px solid color-mix(in srgb,var(--c) 34%,var(--surface));
+  border-bottom:1px solid color-mix(in srgb,var(--c) 34%,var(--surface));
+  transform-origin:left center;
+}
+.bar.solid{background:color-mix(in srgb,var(--c) 62%,var(--surface))}
+.bar.blocker{
+  background:repeating-linear-gradient(45deg,
+    color-mix(in srgb,var(--alarm) 34%,var(--surface)) 0 6px,
+    color-mix(in srgb,var(--alarm) 12%,var(--surface)) 6px 12px);
+  border-left:3px solid var(--alarm);
+  border-top-color:color-mix(in srgb,var(--alarm) 40%,var(--surface));
+  border-right-color:color-mix(in srgb,var(--alarm) 40%,var(--surface));
+  border-bottom-color:color-mix(in srgb,var(--alarm) 40%,var(--surface));
+}
+.row.is-blocked .name{color:var(--alarm);font-weight:500}
+
+@media (prefers-reduced-motion: no-preference){
+  .bar{animation:grow .5s cubic-bezier(.22,.7,.3,1) both}
+  @keyframes grow{from{transform:scaleX(.02);opacity:.2}to{transform:scaleX(1);opacity:1}}
+}
+
+/* legend */
+.legend{display:flex;flex-wrap:wrap;gap:8px 22px;padding:14px 20px;border-top:1px solid var(--rule);background:var(--surface-2);font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.legend i{width:20px;height:11px;border-radius:2px;display:inline-block;border-left:3px solid var(--ink)}
+.legend i.plain{background:color-mix(in srgb,var(--lane-portal) 28%,var(--surface));border-left-color:var(--lane-portal)}
+.legend i.solidx{background:color-mix(in srgb,var(--lane-portal) 62%,var(--surface));border-left-color:var(--lane-portal)}
+.legend i.hatch{background:repeating-linear-gradient(45deg,color-mix(in srgb,var(--alarm) 34%,var(--surface)) 0 5px,color-mix(in srgb,var(--alarm) 12%,var(--surface)) 5px 10px);border-left-color:var(--alarm)}
+.legend i.diamond{width:11px;height:11px;border:0;background:var(--ink);transform:rotate(45deg);border-radius:1px}
+
+/* ---------- critical path ---------- */
+.critical{
+  background:var(--surface);border:1px solid var(--rule);border-left:5px solid var(--alarm);
+  border-radius:4px;padding:22px 24px;display:flex;flex-direction:column;gap:16px;box-shadow:var(--shadow);
+}
+.critical .hd{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:baseline}
+.critical .tag{
+  font-family:"Barlow Condensed",sans-serif;font-size:13px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--alarm);border:1px solid var(--alarm);border-radius:2px;padding:1px 8px;
+}
+.chain{display:flex;flex-wrap:wrap;gap:0;align-items:stretch;margin-top:2px}
+.step{
+  flex:1 1 150px;min-width:150px;background:var(--surface-2);border:1px solid var(--rule);
+  padding:11px 13px;display:flex;flex-direction:column;gap:3px;position:relative;
+}
+.step + .step{border-left:0}
+.step .sn{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.step .st{font-size:13.5px;font-weight:500;line-height:1.3}
+.step .sd{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.step.first{background:color-mix(in srgb,var(--alarm) 12%,var(--surface));border-color:color-mix(in srgb,var(--alarm) 40%,var(--surface))}
+.step.last{background:color-mix(in srgb,var(--ok) 12%,var(--surface));border-color:color-mix(in srgb,var(--ok) 38%,var(--surface))}
+
+/* ---------- tables ---------- */
+.panel{background:var(--surface);border:1px solid var(--rule);border-radius:4px;box-shadow:var(--shadow);overflow:hidden}
+.panel > h2{padding:18px 22px 14px}
+.tablewrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:640px}
+th,td{text-align:left;padding:11px 22px;border-top:1px solid var(--rule);vertical-align:top;font-size:13.6px}
+th{
+  font-family:"Barlow Condensed",sans-serif;font-size:13.5px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--muted);background:var(--surface-2);
+}
+td.sev{white-space:nowrap;font-weight:600}
+.pill{display:inline-block;padding:1px 9px;border-radius:999px;font-size:11.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;font-family:"Barlow Condensed",sans-serif;letter-spacing:.09em}
+.pill.hi{background:color-mix(in srgb,var(--alarm) 16%,var(--surface));color:var(--alarm);border:1px solid color-mix(in srgb,var(--alarm) 40%,var(--surface))}
+.pill.md{background:color-mix(in srgb,var(--lane-and) 16%,var(--surface));color:var(--lane-and);border:1px solid color-mix(in srgb,var(--lane-and) 40%,var(--surface))}
+.pill.lo{background:color-mix(in srgb,var(--ok) 14%,var(--surface));color:var(--ok);border:1px solid color-mix(in srgb,var(--ok) 36%,var(--surface))}
+
+
+footer{border-top:1px solid var(--rule);padding-top:18px;color:var(--muted);font-size:12.5px;display:flex;flex-direction:column;gap:7px}
+footer b{color:var(--ink-2);font-weight:600}
+
+@media (max-width:640px){
+  .wrap{padding:28px 14px 56px;gap:26px}
+  :root{--labelw:230px}
+}
+</style>
+
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">SOiA · Biuro Informatyki i Łączności KG PSP</p>
+    <h1>Harmonogram<br>ALARM.soia</h1>
+    <div class="title-rule"></div>
+    <p class="lead">Publiczna warstwa ostrzegania: <b>portal ALARM.soia</b> (dotychczas SOiA-ALERT) wraz z otwartym feedem alertów oraz <b>aplikacjami mobilnymi na Android i iOS</b>. Linia czasu pokazuje, co budujemy, kiedy testujemy i co musi się wydarzyć, żeby całość była gotowa produkcyjnie w listopadzie 2026.</p>
+
+    <div class="facts">
+      <div class="fact">
+        <span class="k">Dziś</span>
+        <span class="v">20.08.2026</span>
+        <span class="n">14 tygodni do końca</span>
+      </div>
+      <div class="fact is-critical">
+        <span class="k">Data ostateczna</span>
+        <span class="v">30.11.2026</span>
+        <span class="n">gotowość produkcyjna całości</span>
+      </div>
+      <div class="fact">
+        <span class="k">Portal</span>
+        <span class="v">na ukończeniu</span>
+        <span class="n">wdrożenie etapami od września</span>
+      </div>
+      <div class="fact is-critical">
+        <span class="k">Aplikacje mobilne</span>
+        <span class="v">iOS zablokowany</span>
+        <span class="n">brak uprawnień na koncie Apple</span>
+      </div>
+    </div>
+
+    <div class="done" style="margin-top:6px">
+      <span class="eyebrow" style="margin-right:2px">Za nami</span>
+      <span class="chip"><b>22.05</b> Decyzja nr 59 KG PSP — powołanie Zespołu</span>
+      <span class="chip"><b>02.06</b> Prezentacja MVP na posiedzeniu Zespołu</span>
+      <span class="chip"><b>20.06</b> Uwagi RCB, MSWiA i urzędów wojewódzkich</span>
+      <span class="chip"><b>15.07</b> I faza wersji produkcyjnej portalu</span>
+    </div>
+  </header>
+
+  <!-- ============ GANTT ============ -->
+  <section class="chart-card">
+    <div class="chart-head">
+      <h2>Linia czasu produkcji</h2>
+      <p style="font-size:13px;color:var(--muted);margin:0">Sierpień – listopad 2026 · podział tygodniowy · przewiń w bok, aby zobaczyć całość</p>
+    </div>
+
+    <div class="scroll">
+      <div class="chart">
+
+        <div class="months">
+          <div style="grid-column:1"></div>
+          <div class="m" style="grid-column:2/6">Sierpień</div>
+          <div class="m" style="grid-column:6/10">Wrzesień</div>
+          <div class="m" style="grid-column:10/15">Październik</div>
+          <div class="m" style="grid-column:15/20">Listopad</div>
+        </div>
+
+        <div class="weeks">
+          <div></div>
+          <div class="w">3.08</div><div class="w">10.08</div><div class="w">17.08</div><div class="w">24.08</div>
+          <div class="w">31.08</div><div class="w">7.09</div><div class="w">14.09</div><div class="w">21.09</div>
+          <div class="w">28.09</div><div class="w">5.10</div><div class="w">12.10</div><div class="w">19.10</div>
+          <div class="w">26.10</div><div class="w">2.11</div><div class="w">9.11</div><div class="w">16.11</div>
+          <div class="w">23.11</div><div class="w">30.11</div>
+        </div>
+
+        <div class="rail">
+          <div class="rail-track">
+            <div class="rail-line"></div>
+            <div class="ms" style="left:22.6%">
+              <span class="lbl"><span class="d">31.08</span>Kontrakt API zamrożony</span>
+              <span class="dot"></span>
+            </div>
+            <div class="ms is-critical raise" style="left:46.4%">
+              <span class="lbl"><span class="d">30.09</span>Zamrożenie zakresu portalu<br><b>i ostateczny termin konta Apple</b></span>
+              <span class="dot"></span>
+            </div>
+            <div class="ms" style="left:62.3%">
+              <span class="lbl"><span class="d">20.10</span>Wersje kandydujące → beta</span>
+              <span class="dot"></span>
+            </div>
+            <div class="ms raise" style="left:82.9%">
+              <span class="lbl"><span class="d">15.11</span>Zgłoszenie aplikacji do sklepów</span>
+              <span class="dot"></span>
+            </div>
+            <div class="ms is-final edge-r" style="left:94.8%">
+              <span class="lbl"><span class="d">30.11</span>Gotowość produkcyjna</span>
+              <span class="dot"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lanes">
+          <div class="grid-bg" aria-hidden="true">
+            <div class="gl strong" style="left:0%"></div>
+            <div class="gl" style="left:5.55%"></div>
+            <div class="gl" style="left:11.11%"></div>
+            <div class="gl" style="left:16.66%"></div>
+            <div class="gl strong" style="left:22.22%"></div>
+            <div class="gl" style="left:27.77%"></div>
+            <div class="gl" style="left:33.33%"></div>
+            <div class="gl" style="left:38.88%"></div>
+            <div class="gl strong" style="left:44.44%"></div>
+            <div class="gl" style="left:50%"></div>
+            <div class="gl" style="left:55.55%"></div>
+            <div class="gl" style="left:61.11%"></div>
+            <div class="gl" style="left:66.66%"></div>
+            <div class="gl strong" style="left:72.22%"></div>
+            <div class="gl" style="left:77.77%"></div>
+            <div class="gl" style="left:83.33%"></div>
+            <div class="gl" style="left:88.88%"></div>
+            <div class="gl" style="left:94.44%"></div>
+            <div class="today" style="left:13.89%"></div>
+          </div>
+
+          <!-- PORTAL -->
+          <div class="lane" style="--c:var(--lane-portal)">
+            <div class="lane-title"><span class="t"><span class="swatch"></span>Portal ALARM.soia</span><span class="meta">warstwa publiczna: operatorzy CZK, obywatele, urządzenia (otwarty feed)</span></div>
+            <div class="row"><span class="name">Dokończenie funkcji z uwag RCB i MSWiA<span class="dates">3.08 – 18.09</span></span><span class="bar" style="--s:2;--e:9"></span></div>
+            <div class="row"><span class="name">Stabilizacja i zamrożenie zakresu<span class="dates">21.09 – 2.10</span></span><span class="bar" style="--s:9;--e:11"></span></div>
+            <div class="row"><span class="name">Testy integracyjne i wydajnościowe<span class="dates">28.09 – 23.10</span></span><span class="bar" style="--s:10;--e:14"></span></div>
+            <div class="row"><span class="name">Wdrożenie etapami — ściana wschodnia<span class="dates">7.09 – 6.11 · podlaskie · lubelskie · podkarpackie</span></span><span class="bar solid" style="--s:7;--e:16"></span></div>
+            <div class="row"><span class="name">Wsparcie powdrożeniowe i dostrajanie<span class="dates">9.11 – 30.11</span></span><span class="bar" style="--s:16;--e:20"></span></div>
+          </div>
+
+          <!-- API -->
+          <div class="lane" style="--c:var(--lane-api)">
+            <div class="lane-title"><span class="t"><span class="swatch"></span>Wspólne API i feed alertów</span><span class="meta">jedno źródło dla portalu, aplikacji i urządzeń — standard PL-CAP</span></div>
+            <div class="row"><span class="name">Zamrożenie kontraktu API (PL-CAP)<span class="dates">3.08 – 31.08 · warunek startu prac mobilnych</span></span><span class="bar solid" style="--s:2;--e:7"></span></div>
+            <div class="row"><span class="name">Powiadomienia push i kolejka masowej wysyłki<span class="dates">31.08 – 16.10 · Google FCM + Apple APNs</span></span><span class="bar" style="--s:6;--e:13"></span></div>
+            <div class="row"><span class="name">Testy obciążeniowe otwartego feedu<span class="dates">12.10 – 6.11</span></span><span class="bar" style="--s:12;--e:16"></span></div>
+          </div>
+
+          <!-- ANDROID -->
+          <div class="lane" style="--c:var(--lane-and)">
+            <div class="lane-title"><span class="t"><span class="swatch"></span>Aplikacja Android</span><span class="meta">React Native · dystrybucja Google Play</span></div>
+            <div class="row"><span class="name">Budowa funkcji aplikacji<span class="dates">3.08 – 9.10</span></span><span class="bar" style="--s:2;--e:12"></span></div>
+            <div class="row"><span class="name">Testy wewnętrzne na urządzeniach<span class="dates">28.09 – 23.10</span></span><span class="bar" style="--s:10;--e:14"></span></div>
+            <div class="row"><span class="name">Beta zamknięta z użytkownikami<span class="dates">19.10 – 13.11</span></span><span class="bar" style="--s:13;--e:17"></span></div>
+            <div class="row"><span class="name">Publikacja i weryfikacja sklepu<span class="dates">9.11 – 20.11</span></span><span class="bar solid" style="--s:16;--e:18"></span></div>
+          </div>
+
+          <!-- iOS -->
+          <div class="lane" style="--c:var(--lane-ios)">
+            <div class="lane-title"><span class="t"><span class="swatch"></span>Aplikacja iOS</span><span class="meta">React Native · dystrybucja App Store — ścieżka krytyczna</span></div>
+            <div class="row is-blocked"><span class="name">⚠ Uprawnienia na koncie Apple Developer<span class="dates">stan na dziś: BRAK · potrzebne najpóźniej 30.09</span></span><span class="bar blocker" style="--s:2;--e:11"></span></div>
+            <div class="row"><span class="name">Budowa funkcji aplikacji<span class="dates">3.08 – 9.10 · równolegle z Androidem</span></span><span class="bar" style="--s:2;--e:12"></span></div>
+            <div class="row"><span class="name">Certyfikaty, profile, pierwszy build testowy<span class="dates">1.10 – 16.10 · wymaga konta Apple</span></span><span class="bar" style="--s:11;--e:13"></span></div>
+            <div class="row"><span class="name">Beta w TestFlight<span class="dates">19.10 – 13.11</span></span><span class="bar" style="--s:13;--e:17"></span></div>
+            <div class="row"><span class="name">Publikacja i weryfikacja Apple<span class="dates">9.11 – 27.11 · najdłuższa weryfikacja</span></span><span class="bar solid" style="--s:16;--e:19"></span></div>
+          </div>
+
+          <!-- QA -->
+          <div class="lane" style="--c:var(--lane-qa)">
+            <div class="lane-title"><span class="t"><span class="swatch"></span>Testy i bezpieczeństwo</span><span class="meta">cały łańcuch razem, nie każdy element osobno</span></div>
+            <div class="row"><span class="name">Testy pełnej ścieżki: portal → API → aplikacje<span class="dates">12.10 – 6.11</span></span><span class="bar" style="--s:12;--e:16"></span></div>
+            <div class="row"><span class="name">Testy bezpieczeństwa i usunięcie podatności<span class="dates">19.10 – 13.11</span></span><span class="bar" style="--s:13;--e:17"></span></div>
+            <div class="row"><span class="name">Próba sprawdzająca z RCB i WCZK<span class="dates">9.11 – 20.11 · zadanie z Decyzji nr 59</span></span><span class="bar solid" style="--s:16;--e:18"></span></div>
+          </div>
+
+          <!-- WDROŻENIE -->
+          <div class="lane" style="--c:var(--lane-dep)">
+            <div class="lane-title"><span class="t"><span class="swatch"></span>Wdrożenie, szkolenia, odbiór</span><span class="meta">żeby system był nie tylko gotowy, ale i używany</span></div>
+            <div class="row"><span class="name">Dokumentacja i instrukcje dla operatorów<span class="dates">19.10 – 20.11</span></span><span class="bar" style="--s:13;--e:18"></span></div>
+            <div class="row"><span class="name">Szkolenia operatorów RCB i WCZK<span class="dates">26.10 – 20.11</span></span><span class="bar" style="--s:14;--e:18"></span></div>
+            <div class="row"><span class="name">Odbiór i potwierdzenie gotowości produkcyjnej<span class="dates">23.11 – 30.11</span></span><span class="bar solid" style="--s:18;--e:20"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="legend">
+      <span><i class="plain"></i> prace bieżące</span>
+      <span><i class="solidx"></i> etap krytyczny dla terminu</span>
+      <span><i class="hatch"></i> zablokowane — czeka na decyzję poza zespołem</span>
+      <span><i class="diamond"></i> kamień milowy</span>
+      <span style="color:var(--today);font-weight:600">▌ linia „dziś”</span>
+    </div>
+  </section>
+
+  <!-- ============ ŚCIEŻKA KRYTYCZNA ============ -->
+  <section class="critical">
+    <div class="hd">
+      <span class="tag">Ścieżka krytyczna</span>
+      <h3 style="flex:1 1 320px">O terminie całości rozstrzyga jedna sprawa: konto Apple</h3>
+    </div>
+    <p class="lead" style="max-width:80ch">Aplikacji na iPhone’a nie da się przekazać testerom ani opublikować bez uprawnień na firmowym koncie Apple Developer. Kod powstaje równolegle z Androidem i nie jest problemem — problemem jest to, że <b>od momentu uzyskania uprawnień do publikacji w App Store potrzeba około ośmiu tygodni</b>. Licząc wstecz od 30 listopada, uprawnienia muszą być na miejscu <b>najpóźniej 30 września</b>. Każdy tydzień opóźnienia po tej dacie to tydzień opóźnienia wersji na iPhone’a — Android i portal zdążą niezależnie.</p>
+    <div class="chain">
+      <div class="step first">
+        <span class="sn">Warunek</span>
+        <span class="st">Uprawnienia na koncie Apple Developer</span>
+        <span class="sd">do 30.09</span>
+      </div>
+      <div class="step">
+        <span class="sn">Krok 1</span>
+        <span class="st">Certyfikaty i profile, pierwszy build</span>
+        <span class="sd">ok. 2 tyg.</span>
+      </div>
+      <div class="step">
+        <span class="sn">Krok 2</span>
+        <span class="st">Beta w TestFlight z użytkownikami</span>
+        <span class="sd">ok. 4 tyg.</span>
+      </div>
+      <div class="step">
+        <span class="sn">Krok 3</span>
+        <span class="st">Weryfikacja Apple przed publikacją</span>
+        <span class="sd">do 2 tyg.</span>
+      </div>
+      <div class="step last">
+        <span class="sn">Efekt</span>
+        <span class="st">Aplikacja dostępna w App Store</span>
+        <span class="sd">27.11</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RYZYKA ============ -->
+  <section class="panel">
+    <h2>Co może przesunąć termin</h2>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th style="width:34%">Ryzyko</th><th style="width:12%">Waga</th><th style="width:27%">Skutek, jeśli się zmaterializuje</th><th style="width:27%">Co je zdejmuje</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Brak uprawnień na koncie Apple</b> po 30.09</td>
+            <td class="sev"><span class="pill hi">Krytyczne</span></td>
+            <td>Wersja na iPhone’a nie zdąży na listopad. Portal i Android — bez zmian.</td>
+            <td>Decyzja właściciela konta Apple i nadanie ról do 30.09.</td>
+          </tr>
+          <tr>
+            <td><b>Rozrastanie się zakresu portalu</b> — nowe uwagi po zamrożeniu</td>
+            <td class="sev"><span class="pill hi">Wysokie</span></td>
+            <td>Testy startują później, kaskadowo przesuwa się wszystko za nimi.</td>
+            <td>Twarde zamrożenie zakresu 30.09; nowe uwagi → kolejna wersja po odbiorze.</td>
+          </tr>
+          <tr>
+            <td><b>Skala masowej wysyłki</b> — powiadomienia do setek tysięcy urządzeń naraz</td>
+            <td class="sev"><span class="pill md">Średnie</span></td>
+            <td>Opóźnienia w dostarczaniu alertów przy realnym zagrożeniu.</td>
+            <td>Testy obciążeniowe w październiku, przed próbą z RCB.</td>
+          </tr>
+          <tr>
+            <td><b>Dostępność partnerów</b> — RCB, urzędy wojewódzkie, gminy w terminach testów</td>
+            <td class="sev"><span class="pill md">Średnie</span></td>
+            <td>Próba sprawdzająca przesuwa się poza listopad.</td>
+            <td>Terminy prób uzgodnione i rozesłane do 30.09.</td>
+          </tr>
+          <tr>
+            <td><b>Weryfikacja w sklepach</b> — odrzucenie zgłoszenia przez Apple lub Google</td>
+            <td class="sev"><span class="pill lo">Niskie</span></td>
+            <td>Poprawki i ponowne zgłoszenie — zwykle kilka dni.</td>
+            <td>Zapas dwóch tygodni między zgłoszeniem a 30.11.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    <p><b>Założenia planu.</b> „Listopad 2026” przyjęto jako 30.11.2026. Terminy weryfikacji w sklepach (Apple, Google) są szacunkowe — zależą od operatorów sklepów i nie podlegają naszemu harmonogramowi. Prace nad aplikacjami mobilnymi liczone od zamrożenia kontraktu API 31.08.</p>
+    <p><b>Kontekst.</b> ALARM.soia to nowa nazwa systemu SOiA-ALERT (Decyzja nr 59 KG PSP z 22.05.2026). Portal jest warstwą publiczną rodziny SOiA — obok SYRENY.soia i SWD.soia przeznaczonych dla służb.</p>
+    <p>Opracowanie: BIŁ KG PSP · stan na 20.08.2026</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
