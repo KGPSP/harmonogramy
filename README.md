@@ -61,6 +61,16 @@ Konwencja belek w `pages.py`: `s` = pierwszy tydzień (numerowany od 1), `e` = t
 2. Dodaj kafelek w sekcji „Aktualne" w `HUB` (ten sam plik).
 3. `python3 _tools/build.py`, commit na `main` — Pages przebuduje się automatycznie.
 
+## Wersja artefaktowa
+
+Ta sama strona bywa publikowana jako artefakt na `claude.ai` — środowisko artefaktu blokuje zasoby z zewnętrznych hostów poza Google Fonts, więc potrzebny jest plik samowystarczalny:
+
+```sh
+python3 _tools/build_artifact.py alarm-soia /sciezka/do/pliku.html
+```
+
+Skrypt wbudowuje arkusz stylów, skrypt i logotypy (jako `data:` URI) oraz usuwa szkielet dokumentu, który środowisko artefaktu dokleja samo. Dzięki temu artefakt i strona publiczna pochodzą z jednego źródła i nie rozjeżdżają się przy kolejnych zmianach.
+
 ## Logotypy
 
 Logotypy w `assets/logo/` pochodzą z repozytorium [`KGPSP/loga-partnerzy`](https://github.com/KGPSP/loga-partnerzy). Do plików RCB i OLiOC dodano atrybut `viewBox`, żeby skalowały się w przeglądarce; poza tym nie były modyfikowane. Pasek instytucji jest osadzony na białej płycie, dzięki czemu znaki zachowują poprawne barwy również w ciemnym motywie strony.
