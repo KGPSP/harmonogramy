@@ -15,110 +15,100 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/harmonogram.css">
 <style>
-:root{
-  --paper:#EDF0F3; --surface:#FFFFFF; --surface-2:#F6F8FA;
-  --ink:#14202B; --ink-2:#3D4C5A; --muted:#66757F;
-  --rule:#D6DDE4; --rule-strong:#B4C0CB;
-  --accent:#0F5C8C; --alarm:#B8342A; --ok:#166F60;
-  --shadow:0 1px 2px rgba(20,32,43,.06), 0 8px 24px -12px rgba(20,32,43,.18);
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --paper:#0E141A; --surface:#161E26; --surface-2:#1B242D;
-    --ink:#E7ECF1; --ink-2:#C2CCD6; --muted:#93A2AF;
-    --rule:#2A3742; --rule-strong:#3D4E5C;
-    --accent:#5AA9DC; --alarm:#E4786B; --ok:#4CBDA4;
-    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -14px rgba(0,0,0,.7);
+  .wrap{max-width:920px}
+  .list{display:flex;flex-direction:column;gap:14px}
+  .card{
+    text-decoration:none;color:inherit;
+    background:var(--surface);border:1px solid var(--rule);border-left:5px solid var(--c);
+    border-radius:4px;box-shadow:var(--shadow);padding:22px 24px;
+    display:grid;grid-template-columns:1fr auto;gap:6px 20px;align-items:start;
+    transition:border-color .15s ease, transform .15s ease;
   }
-}
-:root[data-theme="dark"]{
-  --paper:#0E141A; --surface:#161E26; --surface-2:#1B242D;
-  --ink:#E7ECF1; --ink-2:#C2CCD6; --muted:#93A2AF;
-  --rule:#2A3742; --rule-strong:#3D4E5C;
-  --accent:#5AA9DC; --alarm:#E4786B; --ok:#4CBDA4;
-  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -14px rgba(0,0,0,.7);
-}
-*{box-sizing:border-box}
-body{
-  margin:0;background:var(--paper);color:var(--ink);
-  font-family:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;font-size:15px;line-height:1.55;
-  -webkit-font-smoothing:antialiased;
-}
-.wrap{max-width:880px;margin:0 auto;padding:56px 24px 72px;display:flex;flex-direction:column;gap:34px}
-h1,h2{margin:0;font-family:"Barlow Condensed","Arial Narrow",sans-serif;text-wrap:balance}
-h1{font-size:clamp(40px,7vw,64px);font-weight:700;line-height:.96;text-transform:uppercase;letter-spacing:.01em}
-h2{font-size:22px;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
-p{margin:0}
-.eyebrow{font-family:"Barlow Condensed",sans-serif;font-size:15px;font-weight:600;text-transform:uppercase;letter-spacing:.18em;color:var(--muted)}
-.title-rule{height:4px;background:var(--ink);width:82px;margin-top:4px}
-.lead{max-width:62ch;color:var(--ink-2);font-size:16.5px}
-
-.list{display:flex;flex-direction:column;gap:14px}
-.card{
-  display:block;text-decoration:none;color:inherit;
-  background:var(--surface);border:1px solid var(--rule);border-left:5px solid var(--accent);
-  border-radius:4px;box-shadow:var(--shadow);padding:22px 24px;
-  display:grid;grid-template-columns:1fr auto;gap:6px 20px;align-items:start;
-  transition:border-color .15s ease, transform .15s ease;
-}
-.card:hover,.card:focus-visible{border-color:var(--rule-strong);border-left-color:var(--accent);transform:translateY(-1px)}
-.card:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-.card .n{font-family:"Barlow Condensed",sans-serif;font-size:29px;font-weight:700;line-height:1;text-transform:uppercase;letter-spacing:.02em}
-.card .d{grid-column:1;color:var(--ink-2);font-size:14.5px;max-width:58ch}
-.card .meta{grid-column:1;display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-.card .go{
-  grid-row:1;grid-column:2;font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;
-  color:var(--accent);white-space:nowrap;padding-top:5px;
-}
-.tag{
-  display:inline-flex;align-items:baseline;gap:6px;border:1px solid var(--rule);border-radius:999px;
-  background:var(--surface-2);padding:3px 11px;font-size:12px;color:var(--ink-2);
-}
-.tag b{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:600;font-variant-numeric:tabular-nums}
-.tag.term b{color:var(--alarm)}
-.tag.live b{color:var(--ok)}
-
-.soon{border:1px dashed var(--rule-strong);border-radius:4px;padding:18px 22px;color:var(--muted);font-size:14px;background:transparent}
-footer{border-top:1px solid var(--rule);padding-top:18px;color:var(--muted);font-size:12.5px;display:flex;flex-direction:column;gap:6px}
-footer a{color:var(--accent)}
-@media (max-width:560px){
-  .wrap{padding:36px 16px 56px}
-  .card{grid-template-columns:1fr}
-  .card .go{grid-row:auto;grid-column:1;padding-top:2px}
-}
+  .card:hover,.card:focus-visible{border-color:var(--rule-strong);transform:translateY(-1px)}
+  .card:focus-visible{outline:2px solid var(--c);outline-offset:3px}
+  .card .n{font-family:"Barlow Condensed",sans-serif;font-size:29px;font-weight:700;line-height:1;text-transform:uppercase;letter-spacing:.02em}
+  .card .d{grid-column:1;color:var(--ink-2);font-size:14.5px;max-width:60ch}
+  .card .meta{grid-column:1;display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .card .go{grid-row:1;grid-column:2;font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;color:var(--c);white-space:nowrap;padding-top:5px}
+  .tag{display:inline-flex;align-items:baseline;gap:6px;border:1px solid var(--rule);border-radius:999px;background:var(--surface-2);padding:3px 11px;font-size:12px;color:var(--ink-2)}
+  .tag b{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:600;font-variant-numeric:tabular-nums}
+  .tag.term b{color:var(--alarm)}
+  .tag.live b{color:var(--ok)}
+  .soon{border:1px dashed var(--rule-strong);border-radius:4px;padding:18px 22px;color:var(--muted);font-size:14px}
+  @media (max-width:560px){
+    .card{grid-template-columns:1fr}
+    .card .go{grid-row:auto;grid-column:1;padding-top:2px}
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <header style="display:flex;flex-direction:column;gap:12px">
+  <header style="gap:12px">
     <p class="eyebrow">Komenda Główna PSP · Biuro Informatyki i Łączności</p>
     <h1>Harmonogramy</h1>
     <div class="title-rule"></div>
-    <p class="lead">Harmonogramy realizacji projektów prowadzonych przez BIŁ KG PSP. Każdy harmonogram to jedna strona: fazy prac, testy, kamienie milowe i termin — w formie czytelnej bez znajomości szczegółów technicznych.</p>
+    <p class="lead">Harmonogramy realizacji projektów prowadzonych przez BIŁ KG PSP. Każdy harmonogram to jedna strona: fazy prac, testy, kamienie milowe i termin — w formie czytelnej bez znajomości szczegółów technicznych. Linia „dziś” na każdym wykresie ustawia się sama.</p>
   </header>
 
   <section class="list">
     <h2>Aktualne</h2>
-    <a class="card" href="alarm-soia/">
+
+    <a class="card" href="alarm-soia/" style="--c:var(--lane-portal)">
       <span class="n">ALARM.soia</span>
       <span class="go">Otwórz →</span>
-      <span class="d">Publiczna warstwa ostrzegania: portal ALARM.soia wraz z otwartym feedem alertów oraz aplikacje mobilne na Android i iOS. Linia czasu od budowy funkcji, przez testy i wdrożenie, po gotowość produkcyjną.</span>
+      <span class="d">Publiczna warstwa ostrzegania: portal ALARM.soia wraz z otwartym feedem alertów oraz aplikacje mobilne na Android i iOS.</span>
       <span class="meta">
         <span class="tag live"><b>●</b> w realizacji</span>
         <span class="tag term">termin <b>30.11.2026</b></span>
         <span class="tag">portal + aplikacje mobilne</span>
       </span>
     </a>
+
+    <a class="card" href="zkswd/" style="--c:var(--lane-api)">
+      <span class="n">ZKSWD</span>
+      <span class="go">Otwórz →</span>
+      <span class="d">System wspomagania decyzji dla zarządzania kryzysowego. Działa produkcyjnie od 21.08.2026; nowe funkcje co tydzień, pełny zasięg krajowy w grudniu.</span>
+      <span class="meta">
+        <span class="tag live"><b>●</b> na produkcji</span>
+        <span class="tag term">termin <b>18.12.2026</b></span>
+        <span class="tag">wydania co tydzień</span>
+      </span>
+    </a>
+
+    <a class="card" href="civcom/" style="--c:var(--lane-and)">
+      <span class="n">CivCom</span>
+      <span class="go">Otwórz →</span>
+      <span class="d">Służbowy komunikator zarządzania kryzysowego i ochrony ludności (civcom.soia.info) — szyfrowana komunikacja, logowanie kontem służbowym, aplikacja na komputer.</span>
+      <span class="meta">
+        <span class="tag live"><b>●</b> w odbiorze</span>
+        <span class="tag term">termin <b>14.09.2026</b></span>
+        <span class="tag">komunikator ZK i OL</span>
+      </span>
+    </a>
+
     <p class="soon">Kolejne harmonogramy będą dodawane w tym miejscu.</p>
   </section>
 
+  <section class="orgs">
+    <h2>Współdziałanie</h2>
+    <div class="plate">
+      <img class="l-psp" src="assets/logo/psp.svg" alt="Państwowa Straż Pożarna" width="45" height="58" loading="lazy">
+      <img class="l-mswia" src="assets/logo/mswia.svg" alt="Ministerstwo Spraw Wewnętrznych i Administracji" width="143" height="28" loading="lazy">
+      <img class="l-rcb" src="assets/logo/rcb.svg" alt="Rządowe Centrum Bezpieczeństwa" width="82" height="46" loading="lazy">
+      <img class="l-olioc" src="assets/logo/olioc.svg" alt="Ochrona Ludności i Obrona Cywilna" width="100" height="34" loading="lazy">
+    </div>
+    <p class="names">Państwowa Straż Pożarna · Ministerstwo Spraw Wewnętrznych i Administracji · Rządowe Centrum Bezpieczeństwa · Ochrona Ludności i Obrona Cywilna</p>
+  </section>
+
   <footer>
-    <p>Stan na 20.08.2026. Harmonogramy mają charakter planistyczny — daty zależne od podmiotów zewnętrznych (m.in. weryfikacja w sklepach z aplikacjami) są szacunkowe.</p>
-    <p>Opracowanie: Biuro Informatyki i Łączności KG PSP · <a href="https://github.com/KGPSP/harmonogramy">źródło strony</a></p>
+    <p>Harmonogramy mają charakter planistyczny — daty zależne od podmiotów zewnętrznych (m.in. weryfikacja w sklepach z aplikacjami, wydanie certyfikatów) są szacunkowe.</p>
+    <p>Opracowanie: Biuro Informatyki i Łączności KG PSP · <span data-updated>stan na 20.08.2026</span> · <a href="https://github.com/KGPSP/harmonogramy">źródło strony</a></p>
   </footer>
 
 </div>
+<script src="assets/timeline.js"></script>
 </body>
 </html>
