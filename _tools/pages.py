@@ -14,21 +14,23 @@ ALARM_ASIDE = """
       <span class="chip"><b>02.06</b> Prezentacja MVP na posiedzeniu Zespołu</span>
       <span class="chip"><b>20.06</b> Uwagi RCB, MSWiA i urzędów wojewódzkich</span>
       <span class="chip"><b>15.07</b> I faza wersji produkcyjnej portalu</span>
+      <span class="chip"><b>18.09</b> Konta developerskie Apple i Google — uprawnienia nadane</span>
+      <span class="chip"><b>18.09</b> Aplikacje Android i iOS opracowane — wejście w testy</span>
     </div>
 """
 
-ALARM_SECTIONS = """  <section class="critical">
+ALARM_SECTIONS = """  <section class="critical neutral">
     <div class="hd">
-      <span class="tag">Ścieżka krytyczna</span>
-      <h3 style="flex:1 1 320px">O terminie całości rozstrzyga jedna sprawa: konto Apple</h3>
+      <span class="tag">Ścieżka krytyczna — domknięta</span>
+      <h3 style="flex:1 1 320px">Konta developerskie są, aplikacje działają — teraz rozstrzygają testy</h3>
     </div>
-    <p class="lead" style="max-width:80ch">Aplikacji na iPhone’a nie da się przekazać testerom ani opublikować bez uprawnień na firmowym koncie Apple Developer. Kod powstaje równolegle z Androidem i nie jest problemem — problemem jest to, że <b>od momentu uzyskania uprawnień do publikacji w App Store potrzeba około ośmiu tygodni</b>. Licząc wstecz od 30 listopada, uprawnienia muszą być na miejscu <b>najpóźniej 30 września</b>. Każdy tydzień opóźnienia po tej dacie to tydzień opóźnienia wersji na iPhone’a — Android i portal zdążą niezależnie.</p>
+    <p class="lead" style="max-width:80ch">Blokada, która przez całe lato decydowała o terminie całości, została zdjęta: <b>18 września nadano uprawnienia na firmowych kontach Apple Developer i Google Play</b>, przed granicznym terminem 30 września. Aplikacje na Androida i iPhone’a są opracowane i <b>weszły w fazę testów</b>. Od tego momentu o listopadowej gotowości nie rozstrzygają już zgody poza zespołem, lecz to, co znajdziemy w testach — a w szczególności <b>testy cyberbezpieczeństwa systemu alarm.soia.info, które startują 1 października</b>. Rezerwa do 30 listopada wynosi dwa tygodnie i jest przeznaczona na poprawki po testach i na weryfikację w sklepach.</p>
     <div class="chain">
-      <div class="step first"><span class="sn">Warunek</span><span class="st">Uprawnienia na koncie Apple Developer</span><span class="sd">do 30.09</span></div>
-      <div class="step"><span class="sn">Krok 1</span><span class="st">Certyfikaty i profile, pierwszy build</span><span class="sd">ok. 2 tyg.</span></div>
-      <div class="step"><span class="sn">Krok 2</span><span class="st">Beta w TestFlight z użytkownikami</span><span class="sd">ok. 4 tyg.</span></div>
-      <div class="step"><span class="sn">Krok 3</span><span class="st">Weryfikacja Apple przed publikacją</span><span class="sd">do 2 tyg.</span></div>
-      <div class="step last"><span class="sn">Efekt</span><span class="st">Aplikacja dostępna w App Store</span><span class="sd">27.11</span></div>
+      <div class="step first"><span class="sn">Warunek</span><span class="st">Konta developerskie Apple i Google</span><span class="sd">spełniony 18.09</span></div>
+      <div class="step"><span class="sn">Krok 1</span><span class="st">Testy wewnętrzne na urządzeniach</span><span class="sd">21.09 – 16.10</span></div>
+      <div class="step"><span class="sn">Krok 2</span><span class="st">Testy cyberbezpieczeństwa alarm.soia.info</span><span class="sd">1.10 – 30.10</span></div>
+      <div class="step"><span class="sn">Krok 3</span><span class="st">Beta: TestFlight i Google Play</span><span class="sd">19.10 – 13.11</span></div>
+      <div class="step last"><span class="sn">Efekt</span><span class="st">Aplikacje dostępne w sklepach</span><span class="sd">27.11</span></div>
     </div>
   </section>
 
@@ -38,17 +40,17 @@ ALARM = {
     "slug": "alarm-soia",
     "title": "Harmonogram ALARM.soia — KG PSP",
     "ogtitle": "Harmonogram ALARM.soia",
-    "desc": "Harmonogram produkcji ALARM.soia: portal ostrzegania oraz aplikacje mobilne Android i iOS. Fazy, testy, kamienie milowe i ścieżka krytyczna do gotowości produkcyjnej 30.11.2026.",
+    "desc": "Harmonogram produkcji ALARM.soia: portal ostrzegania oraz aplikacje mobilne Android i iOS. Aplikacje opracowane i w testach, testy cyberbezpieczeństwa alarm.soia.info od 1.10, gotowość produkcyjna 30.11.2026.",
     "ogimage": "og-alarm-soia.png",
     "favicon": "🚨",
     "eyebrow": "SOiA · Biuro Informatyki i Łączności KG PSP",
     "h1": "Harmonogram<br>ALARM.soia",
-    "lead": "Publiczna warstwa ostrzegania: <b>portal ALARM.soia</b> (dotychczas SOiA-ALERT) wraz z otwartym feedem alertów oraz <b>aplikacjami mobilnymi na Android i iOS</b>. Linia czasu pokazuje, co budujemy, kiedy testujemy i co musi się wydarzyć, żeby całość była gotowa produkcyjnie w listopadzie 2026.",
+    "lead": "Publiczna warstwa ostrzegania: <b>portal ALARM.soia</b> (dotychczas SOiA-ALERT) wraz z otwartym feedem alertów oraz <b>aplikacjami mobilnymi na Android i iOS</b>. Konta developerskie są uzyskane, aplikacje opracowane i w testach. Linia czasu pokazuje, co testujemy, kiedy i co musi się wydarzyć, żeby całość była gotowa produkcyjnie w listopadzie 2026.",
     "facts": [
-        {"k": "Dziś", "v": "20.08.2026", "n": "14 tygodni do końca", "auto_date": True, "auto_left": True},
+        {"k": "Dziś", "v": "18.09.2026", "n": "10 tygodni do końca", "auto_date": True, "auto_left": True},
         {"k": "Data ostateczna", "v": "30.11.2026", "n": "gotowość produkcyjna całości", "critical": True},
-        {"k": "Portal", "v": "na ukończeniu", "n": "wdrożenie etapami od września"},
-        {"k": "Aplikacje mobilne", "v": "iOS zablokowany", "n": "brak uprawnień na koncie Apple", "critical": True},
+        {"k": "Portal", "v": "w testach", "n": "wdrożenie etapami trwa od września"},
+        {"k": "Aplikacje mobilne", "v": "opracowane, w testach", "n": "Android i iOS — konta developerskie uzyskane"},
     ],
     "aside": ALARM_ASIDE,
     "chart_title": "Linia czasu produkcji",
@@ -57,41 +59,41 @@ ALARM = {
     "months": [("Sierpień", 4), ("Wrzesień", 4), ("Październik", 5), ("Listopad", 5)],
     "milestones": [
         {"date": "2026-08-31", "label": "Kontrakt API zamrożony"},
-        {"date": "2026-09-30", "label": "Zamrożenie zakresu portalu<br><b>i ostateczny termin konta Apple</b>", "critical": True, "raise": True},
+        {"date": "2026-09-30", "label": "Zamrożenie zakresu portalu<br><b>start testów cyberbezpieczeństwa</b>", "raise": True},
         {"date": "2026-10-20", "label": "Wersje kandydujące → beta"},
         {"date": "2026-11-15", "label": "Zgłoszenie aplikacji do sklepów", "raise": True},
         {"date": "2026-11-30", "label": "Gotowość produkcyjna", "final": True},
     ],
-    "legend_blocker": True,
     "lanes": [
         {"name": "Portal ALARM.soia", "color": "portal", "meta": "warstwa publiczna: operatorzy CZK, obywatele, urządzenia (otwarty feed)", "rows": [
-            {"name": "Dokończenie funkcji z uwag RCB i MSWiA", "dates": "3.08 – 18.09", "s": 1, "e": 8},
+            {"name": "Dokończenie funkcji z uwag RCB i MSWiA", "dates": "3.08 – 18.09 · zakończone", "s": 1, "e": 8},
             {"name": "Stabilizacja i zamrożenie zakresu", "dates": "21.09 – 2.10", "s": 8, "e": 10},
             {"name": "Testy integracyjne i wydajnościowe", "dates": "28.09 – 23.10", "s": 9, "e": 13},
             {"name": "Wdrożenie etapami — ściana wschodnia", "dates": "7.09 – 6.11 · podlaskie · lubelskie · podkarpackie", "s": 6, "e": 15, "key": True},
             {"name": "Wsparcie powdrożeniowe i dostrajanie", "dates": "9.11 – 30.11", "s": 15, "e": 19},
         ]},
         {"name": "Wspólne API i feed alertów", "color": "api", "meta": "jedno źródło dla portalu, aplikacji i urządzeń — standard PL-CAP", "rows": [
-            {"name": "Zamrożenie kontraktu API (PL-CAP)", "dates": "3.08 – 31.08 · warunek startu prac mobilnych", "s": 1, "e": 6, "key": True},
+            {"name": "Zamrożenie kontraktu API (PL-CAP)", "dates": "3.08 – 31.08 · zakończone", "s": 1, "e": 6},
             {"name": "Powiadomienia push i kolejka masowej wysyłki", "dates": "31.08 – 16.10 · Google FCM + Apple APNs", "s": 5, "e": 12},
             {"name": "Testy obciążeniowe otwartego feedu", "dates": "12.10 – 6.11", "s": 11, "e": 15},
         ]},
-        {"name": "Aplikacja Android", "color": "and", "meta": "React Native · dystrybucja Google Play", "rows": [
-            {"name": "Budowa funkcji aplikacji", "dates": "3.08 – 9.10", "s": 1, "e": 11},
-            {"name": "Testy wewnętrzne na urządzeniach", "dates": "28.09 – 23.10", "s": 9, "e": 13},
+        {"name": "Aplikacja Android", "color": "and", "meta": "React Native · konto Google Play czynne · dystrybucja Google Play", "rows": [
+            {"name": "Budowa funkcji aplikacji", "dates": "3.08 – 18.09 · zakończona", "s": 1, "e": 8},
+            {"name": "Testy wewnętrzne na urządzeniach", "dates": "21.09 – 16.10", "s": 8, "e": 12},
             {"name": "Beta zamknięta z użytkownikami", "dates": "19.10 – 13.11", "s": 12, "e": 16},
             {"name": "Publikacja i weryfikacja sklepu", "dates": "9.11 – 20.11", "s": 15, "e": 17, "key": True},
         ]},
-        {"name": "Aplikacja iOS", "color": "ios", "meta": "React Native · dystrybucja App Store — ścieżka krytyczna", "rows": [
-            {"name": "⚠ Uprawnienia na koncie Apple Developer", "dates": "stan na dziś: BRAK · potrzebne najpóźniej 30.09", "s": 1, "e": 10, "blocked": True},
-            {"name": "Budowa funkcji aplikacji", "dates": "3.08 – 9.10 · równolegle z Androidem", "s": 1, "e": 11},
-            {"name": "Certyfikaty, profile, pierwszy build testowy", "dates": "1.10 – 16.10 · wymaga konta Apple", "s": 10, "e": 12},
+        {"name": "Aplikacja iOS", "color": "ios", "meta": "React Native · konto Apple Developer czynne od 18.09 · dystrybucja App Store", "rows": [
+            {"name": "Budowa funkcji aplikacji", "dates": "3.08 – 18.09 · zakończona", "s": 1, "e": 8},
+            {"name": "Certyfikaty, profile, pierwszy build testowy", "dates": "14.09 – 2.10 · konto Apple uzyskane 18.09", "s": 7, "e": 10},
+            {"name": "Testy wewnętrzne na urządzeniach", "dates": "21.09 – 16.10", "s": 8, "e": 12},
             {"name": "Beta w TestFlight", "dates": "19.10 – 13.11", "s": 12, "e": 16},
             {"name": "Publikacja i weryfikacja Apple", "dates": "9.11 – 27.11 · najdłuższa weryfikacja", "s": 15, "e": 18, "key": True},
         ]},
-        {"name": "Testy i bezpieczeństwo", "color": "qa", "meta": "cały łańcuch razem, nie każdy element osobno", "rows": [
+        {"name": "Testy i cyberbezpieczeństwo", "color": "qa", "meta": "cały łańcuch razem, nie każdy element osobno", "rows": [
+            {"name": "Testy cyberbezpieczeństwa alarm.soia.info", "dates": "1.10 – 30.10 · portal, API, feed alertów i aplikacje mobilne", "s": 9, "e": 14, "key": True},
             {"name": "Testy pełnej ścieżki: portal → API → aplikacje", "dates": "12.10 – 6.11", "s": 11, "e": 15},
-            {"name": "Testy bezpieczeństwa i usunięcie podatności", "dates": "19.10 – 13.11", "s": 12, "e": 16},
+            {"name": "Usunięcie podatności i retesty", "dates": "19.10 – 13.11", "s": 12, "e": 16},
             {"name": "Próba sprawdzająca z RCB i WCZK", "dates": "9.11 – 20.11 · zadanie z Decyzji nr 59", "s": 15, "e": 17, "key": True},
         ]},
         {"name": "Wdrożenie, szkolenia, odbiór", "color": "dep", "meta": "żeby system był nie tylko gotowy, ale i używany", "rows": [
@@ -106,18 +108,18 @@ ALARM = {
       <table>
         <thead><tr><th style="width:34%">Ryzyko</th><th style="width:12%">Waga</th><th style="width:27%">Skutek, jeśli się zmaterializuje</th><th style="width:27%">Co je zdejmuje</th></tr></thead>
         <tbody>
-          <tr><td><b>Brak uprawnień na koncie Apple</b> po 30.09</td><td class="sev"><span class="pill hi">Krytyczne</span></td><td>Wersja na iPhone’a nie zdąży na listopad. Portal i Android — bez zmian.</td><td>Decyzja właściciela konta Apple i nadanie ról do 30.09.</td></tr>
+          <tr><td><b>Podatności wykryte w testach cyberbezpieczeństwa</b> alarm.soia.info</td><td class="sev"><span class="pill hi">Wysokie</span></td><td>Krytyczne ustalenia wymagają przebudowy, a nie poprawki — retest przesuwa zgłoszenie do sklepów.</td><td>Testy od 1.10, czyli sześć tygodni przed zgłoszeniem; ustalenia krytyczne naprawiane na bieżąco, nie po zamknięciu testów.</td></tr>
           <tr><td><b>Rozrastanie się zakresu portalu</b> — nowe uwagi po zamrożeniu</td><td class="sev"><span class="pill hi">Wysokie</span></td><td>Testy startują później, kaskadowo przesuwa się wszystko za nimi.</td><td>Twarde zamrożenie zakresu 30.09; nowe uwagi → kolejna wersja po odbiorze.</td></tr>
           <tr><td><b>Skala masowej wysyłki</b> — powiadomienia do setek tysięcy urządzeń naraz</td><td class="sev"><span class="pill md">Średnie</span></td><td>Opóźnienia w dostarczaniu alertów przy realnym zagrożeniu.</td><td>Testy obciążeniowe w październiku, przed próbą z RCB.</td></tr>
           <tr><td><b>Dostępność partnerów</b> — RCB, urzędy wojewódzkie, gminy w terminach testów</td><td class="sev"><span class="pill md">Średnie</span></td><td>Próba sprawdzająca przesuwa się poza listopad.</td><td>Terminy prób uzgodnione i rozesłane do 30.09.</td></tr>
-          <tr><td><b>Weryfikacja w sklepach</b> — odrzucenie zgłoszenia przez Apple lub Google</td><td class="sev"><span class="pill lo">Niskie</span></td><td>Poprawki i ponowne zgłoszenie — zwykle kilka dni.</td><td>Zapas dwóch tygodni między zgłoszeniem a 30.11.</td></tr>
+          <tr><td><b>Weryfikacja w sklepach</b> — odrzucenie zgłoszenia przez Apple lub Google</td><td class="sev"><span class="pill lo">Niskie</span></td><td>Poprawki i ponowne zgłoszenie — zwykle kilka dni.</td><td>Zapas dwóch tygodni między zgłoszeniem a 30.11; konta developerskie czynne od 18.09.</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
 """,
-    "footnotes": """    <p><b>Założenia planu.</b> „Listopad 2026” przyjęto jako 30.11.2026. Terminy weryfikacji w sklepach (Apple, Google) są szacunkowe — zależą od operatorów sklepów i nie podlegają naszemu harmonogramowi. Prace nad aplikacjami mobilnymi liczone od zamrożenia kontraktu API 31.08.</p>
+    "footnotes": """    <p><b>Założenia planu.</b> „Listopad 2026” przyjęto jako 30.11.2026. Terminy weryfikacji w sklepach (Apple, Google) są szacunkowe — zależą od operatorów sklepów i nie podlegają naszemu harmonogramowi. Testy cyberbezpieczeństwa alarm.soia.info zaplanowano na 1–30.10; obejmują portal, wspólne API, otwarty feed alertów oraz aplikacje mobilne, a usuwanie podatności i retesty prowadzone są równolegle, do 13.11.</p>
     <p><b>Kontekst.</b> ALARM.soia to nowa nazwa systemu SOiA-ALERT (Decyzja nr 59 KG PSP z 22.05.2026). Portal jest warstwą publiczną rodziny SOiA — obok SYRENY.soia i SWD.soia przeznaczonych dla służb.</p>""",
 }
 

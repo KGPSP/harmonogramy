@@ -291,7 +291,7 @@ def build_page(p):
     return path
 
 
-BUILT = "2026-08-20"
+BUILT = "2026-09-18"
 
 from pages import PAGES, HUB  # noqa: E402
 
