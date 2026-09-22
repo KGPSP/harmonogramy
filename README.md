@@ -47,7 +47,7 @@ data-t-deadline="2026-11-30"     data ostateczna
 data-t-left-suffix="do końca"    podpis odliczania (opcjonalny)
 ```
 
-`assets/timeline.js` wylicza z nich pozycję pionowej linii „dziś”, jej etykietę, dzisiejszą datę w kaflu nagłówka, pozostały czas do terminu (z polską odmianą: *1 tydzień / 2 tygodnie / 5 tygodni*) oraz stopkę „stan na …”. Strona nie starzeje się między wypchnięciami do repozytorium. Gdy dzisiejsza data wypada poza zakresem wykresu, linia jest ukrywana.
+`assets/timeline.js` wylicza z nich pozycję pionowej linii „dziś”, jej etykietę, dzisiejszą datę w kaflu nagłówka i pozostały czas do terminu (z polską odmianą: *1 tydzień / 2 tygodnie / 5 tygodni*). Te elementy same nadążają za kalendarzem, więc nie trzeba ich poprawiać przy każdym wypchnięciu. Stopki „stan na …” skrypt nie rusza: to dzień, z którego pochodzą dane, ustawiany stałą `BUILT` w `_tools/build.py`. Gdy dzisiejsza data wypada poza zakresem wykresu, linia jest ukrywana.
 
 ## Jak zmienić harmonogram
 
