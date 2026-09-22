@@ -49,9 +49,8 @@
     document.querySelectorAll("[data-today-date]").forEach(function (el) {
       el.textContent = dmy(today);
     });
-    document.querySelectorAll("[data-updated]").forEach(function (el) {
-      el.textContent = "stan na " + dmy(today);
-    });
+    /* Stopka „stan na” zostaje taka, jaką wpisał generator (BUILT w _tools/build.py).
+       Pokazuje, z kiedy są dane, a nie kiedy ktoś otworzył stronę. */
 
     if (!chart) return;
 
